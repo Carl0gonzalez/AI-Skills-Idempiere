@@ -18,6 +18,7 @@ Su objetivo es facilitar el trabajo seguro sobre plugins OSGi, Application Dicti
 - [Estructura del repositorio](#estructura-del-repositorio)
 - [Reglas de organización](#reglas-de-organización)
 - [Skills disponibles](#skills-disponibles)
+- [Meta-skills: crear y revisar skills](#meta-skills-crear-y-revisar-skills)
 - [Matriz de versiones](#matriz-de-versiones)
 - [Instalación desde un clon local](#instalación-desde-un-clon-local)
 - [Uso en entornos aislados con direnv](#uso-en-entornos-aislados-con-direnv)
@@ -92,6 +93,64 @@ Las siguientes skills están disponibles en cada directorio de versión, salvo q
 | [`jenkinsfile-developer`](idempiere-12/jenkinsfile-developer/SKILL.md) | Mantenimiento de pipelines Jenkins. | Estandariza compilación y publicación de documentación por versión. |
 | [`skill-architect`](idempiere-12/skill-architect/SKILL.md) | Diseño de nuevas skills. | Crea capacidades enfocadas cuando no existe una skill adecuada. |
 | [`skill-reviewer`](idempiere-12/skill-reviewer/SKILL.md) | Revisión de skills antes de adoptarlas. | Evalúa nombre, activación, alcance, estructura y riesgo de duplicación. |
+
+---
+
+## Meta-skills: crear y revisar skills
+
+`skill-architect` y `skill-reviewer` no dependen de iDempiere. Son meta-skills para mantener la calidad del propio catálogo: están disponibles en las tres versiones para que cada entorno pueda crear o evaluar capacidades nuevas sin mezclar dependencias de plataforma.
+
+| Skill | Función | Cuándo usarla | Resultado esperado |
+|---|---|---|---|
+| [`skill-architect`](idempiere-12/skill-architect/SKILL.md) | Diseña y estructura una skill nueva y reutilizable. | Cuando hay un flujo repetible que no está cubierto por una skill existente. | Nombre, descripción, ubicación, estructura y contenido de una skill acotada. |
+| [`skill-reviewer`](idempiere-12/skill-reviewer/SKILL.md) | Audita una skill antes de incorporarla o modificarla. | Antes de hacer commit, instalar una skill o cuando hay dudas sobre alcance o duplicación. | Veredicto, hallazgos, correcciones propuestas y recomendación final. |
+
+### Cómo trabajan juntas
+
+```text
+Necesidad repetible
+        │
+        ▼
+skill-architect ──► ¿Existe una skill equivalente?
+        │                    │
+        │ no                 └── sí: actualizar o reutilizar la existente
+        ▼
+Diseño y creación de una skill enfocada
+        │
+        ▼
+skill-reviewer ───► Revisión de nombre, activación, alcance y estructura
+        │
+        ▼
+Corrección necesaria o aprobación para adopción
+```
+
+`skill-architect` no debe generar una skill para una actividad puntual, ambigua o ya cubierta. Antes de crearla, busca solapamientos, propone un nombre en minúsculas con guiones, redacta una descripción que indique cuándo se activa y limita los archivos auxiliares a los realmente necesarios.
+
+`skill-reviewer` no crea cambios por defecto: primero evalúa si la skill es específica, reutilizable y detectable por un agente. Su salida clasifica el resultado como aprobación, aprobación con ajustes menores, revisión necesaria o rechazo por duplicación/amplitud excesiva. Solo reescribe la skill cuando se le solicita expresamente.
+
+### Ejemplo de uso: crear una skill
+
+Usa este prompt cuando quieras convertir un procedimiento repetido en una skill:
+
+```text
+Quiero crear una skill reutilizable para revisar scripts SQL de migración antes de ejecutarlos.
+
+Debe detectar operaciones destructivas, validar convenciones de nombres y exigir que se indique una estrategia de reversión. Revisa primero las skills disponibles para evitar duplicados. Si procede crearla, propón su nombre, descripción, estructura mínima y el contenido completo de SKILL.md. No agregues scripts ni carpetas auxiliares salvo que sean necesarios.
+```
+
+El resultado esperado es una propuesta como `sql-migration-safety-review`, con criterios claros de activación, límites de seguridad, flujo de revisión y contrato de salida.
+
+### Ejemplo de uso: revisar una skill antes de adoptarla
+
+Usa este prompt para validar una skill existente:
+
+```text
+Revisa la skill ubicada en <ruta-de-la-skill> antes de incorporarla al catálogo.
+
+Evalúa el nombre, el frontmatter, los criterios de activación, el alcance, el riesgo de duplicación, las instrucciones y la estructura de archivos. Devuelve un veredicto, hallazgos concretos, correcciones sugeridas, frontmatter revisado si aplica y una recomendación final. No modifiques archivos todavía.
+```
+
+> Flujo recomendado: crea o actualiza la skill con `skill-architect`, revísala con `skill-reviewer`, aplica las correcciones aprobadas y valida el resultado antes de hacer commit.
 
 ---
 
