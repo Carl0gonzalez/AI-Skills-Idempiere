@@ -1,6 +1,6 @@
-# Antigravity Skills Repository
+# iDempiere 8 Skills
 
-Welcome to the **Antigravity Skills Repository**! This repository serves as a centralized hub for sharing, managing, and developing reusable custom skills for the Antigravity AI coding assistant. 
+This directory contains reusable, agent-agnostic skills for iDempiere 8. They provide focused instructions that any AI agent capable of reading local files and Markdown can use to work consistently with iDempiere projects.
 
 ---
 
@@ -32,14 +32,13 @@ Below is a summary of the custom skills currently available in this repository:
 | [`idempiere-plugin-test-developer`](idempiere-plugin-test-developer/SKILL.md) | Develops tests for plugin components. | Creates unit tests, mocks and isolation strategies. |
 | [`jenkinsfile-developer`](jenkinsfile-developer/SKILL.md) | Maintains iDempiere 8 Jenkins pipelines. | Standardizes compilation and README publishing without host-specific paths. |
 | [`skill-architect`](skill-architect/SKILL.md) | Designs focused reusable skills. | Scaffolds capabilities not already covered by the library. |
-| [`skill-reviewer`](skill-reviewer/SKILL.md) | Reviews Antigravity skills before adoption. | Validates naming, scope, activation and structure. |
+| [`skill-reviewer`](skill-reviewer/SKILL.md) | Reviews skills before adoption. | Validates naming, scope, activation and structure. |
 
 ---
 
-## How to Load Skills
+## How to Use These Skills
 
-To use these skills with your Antigravity assistant, ensure they are copied or linked into your workspace's skill library path (typically `.agents/skills/` under your project root) or the global user configuration path.
+Give your preferred AI agent the path to this directory and ask it to inspect the contained `SKILL.md` files. The agent may copy or link the skills into its own skill library when it supports one, or read them directly from this folder. Confirm its installation path and conflict-handling behavior before allowing it to overwrite existing skills.
 
 ---
 
-*Copyright &copy; 2026 [Casa del Software](https://www.casadelsoftware.com). Licensed under GPL 2.*

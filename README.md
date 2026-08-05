@@ -6,6 +6,7 @@
 [![iDempiere 8](https://img.shields.io/badge/iDempiere-8-4B7BEC)](idempiere-8/)
 [![iDempiere 10](https://img.shields.io/badge/iDempiere-10-20BF6B)](idempiere-10/)
 [![iDempiere 12](https://img.shields.io/badge/iDempiere-12-8854D0)](idempiere-12/)
+[![iDempiere 13](https://img.shields.io/badge/iDempiere-13-E67E22)](idempiere-13/)
 
 Bienvenido al repositorio de skills para iDempiere. Este repositorio centraliza capacidades reutilizables para asistentes de desarrollo, permitiendo mantener instrucciones consistentes y separadas por versión mayor de iDempiere.
 
@@ -35,6 +36,7 @@ Su objetivo es facilitar el trabajo seguro sobre plugins OSGi, Application Dicti
 ├── idempiere-8/                 # Skills para repositorios iDempiere 8
 ├── idempiere-10/                # Skills para repositorios iDempiere 10
 ├── idempiere-12/                # Skills para repositorios iDempiere 12
+├── idempiere-13/                # Skills para repositorios iDempiere 13
 ├── LICENSE                      # Licencia MIT
 └── README.md                    # Catálogo y guía de uso
 ```
@@ -46,6 +48,7 @@ Cada carpeta de versión contiene una copia autónoma de las skills compatibles 
 | [`idempiere-8`](idempiere-8/README.md) | iDempiere 8 | Proyectos, plugins y target platforms basados en v8. |
 | [`idempiere-10`](idempiere-10/README.md) | iDempiere 10 | Proyectos, plugins y target platforms basados en v10. |
 | [`idempiere-12`](idempiere-12/README.md) | iDempiere 12 | Proyectos, plugins y target platforms basados en v12. |
+| [`idempiere-13`](idempiere-13/README.md) | iDempiere 13 | Proyectos, plugins y target platforms basados en v13. |
 
 ---
 
@@ -156,16 +159,16 @@ Evalúa el nombre, el frontmatter, los criterios de activación, el alcance, el 
 
 ## Matriz de versiones
 
-| Área | iDempiere 8 | iDempiere 10 | iDempiere 12 |
-|---|:---:|:---:|:---:|
-| Modelado, migración y PIPO | ✓ | ✓ | ✓ |
-| Diseño, desarrollo y pruebas de plugins | ✓ | ✓ | ✓ |
-| Documentación y manuales | ✓ | ✓ | ✓ |
-| PostgreSQL seguro | ✓ | ✓ | ✓ |
-| Jenkins version-aware | ✓ | ✓ | ✓ |
-| Builder y rama de target platform | Deben verificarse en el repositorio objetivo | Deben verificarse en el repositorio objetivo | Basados en la configuración del repositorio objetivo |
+| Área | iDempiere 8 | iDempiere 10 | iDempiere 12 | iDempiere 13 |
+|---|:---:|:---:|:---:|:---:|
+| Modelado, migración y PIPO | ✓ | ✓ | ✓ | ✓ |
+| Diseño, desarrollo y pruebas de plugins | ✓ | ✓ | ✓ | ✓ |
+| Documentación y manuales | ✓ | ✓ | ✓ | ✓ |
+| PostgreSQL seguro | ✓ | ✓ | ✓ | ✓ |
+| Jenkins version-aware | ✓ | ✓ | ✓ | ✓ |
+| Builder y rama de target platform | Deben verificarse en el repositorio objetivo | Deben verificarse en el repositorio objetivo | Basados en la configuración del repositorio objetivo | Deben verificarse en el repositorio objetivo |
 
-> Las variantes de iDempiere 8 y 10 no reutilizan de forma automática una imagen Docker o rama de target platform de iDempiere 12. La skill Jenkins exige descubrir y configurar el builder correspondiente al proyecto.
+> Ninguna variante debe reutilizar automáticamente una imagen Docker o rama de target platform de otra versión mayor. La skill Jenkins exige descubrir y configurar el builder correspondiente al proyecto.
 
 ---
 
@@ -174,14 +177,14 @@ Evalúa el nombre, el frontmatter, los criterios de activación, el alcance, el 
 También es válido clonar este repositorio y pedir a cualquier asistente de IA que instale las skills desde la carpeta local. Así se conserva una copia versionada, se selecciona explícitamente la variante de iDempiere y el propio agente realiza la instalación según su mecanismo disponible.
 
 1. Clonar este repositorio en una ubicación elegida por el usuario.
-2. Identificar el directorio de la versión requerida: `idempiere-8/`, `idempiere-10/` o `idempiere-12/`.
+2. Identificar el directorio de la versión requerida: `idempiere-8/`, `idempiere-10/`, `idempiere-12/` o `idempiere-13/`.
 3. Copiar el siguiente prompt y reemplazar los valores entre `<...>`.
 
 ```text
 Necesito instalar un conjunto local de skills para mi agente de IA.
 
-Origen de las skills: <ruta-local-del-clon>/idempiere-<8|10|12>/
-Versión objetivo de iDempiere: <8|10|12>
+Origen de las skills: <ruta-local-del-clon>/idempiere-<8|10|12|13>/
+Versión objetivo de iDempiere: <8|10|12|13>
 
 Inspecciona esa carpeta, identifica todas las skills que contengan un archivo SKILL.md y propón instalarlas o enlazarlas en la biblioteca de skills que utiliza este entorno. Antes de modificar archivos, indícame:
 1. Las skills detectadas y la ruta de destino que usarás.
