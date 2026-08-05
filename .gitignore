@@ -1,0 +1,37 @@
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE metadata
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local environment configuration
+.env
+.env.*
+!.env.example
+.direnv/
+
+# Python and tooling caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local logs and temporary files
+*.log
+*.tmp
+*.bak
+*.orig
+
+# Generated skill metadata and local working state
+.agents/
+.codex/
+
+# Nested repository metadata; do not publish it as part of this backup.
+/idempiere-12/.git/
