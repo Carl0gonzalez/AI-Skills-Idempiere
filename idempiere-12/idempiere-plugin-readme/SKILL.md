@@ -34,7 +34,7 @@ Use this order:
 ```markdown
 # <plugin.bundle.id>
 
-- Copyright: <year> https://www.casadelsoftware.com
+- Copyright: <year> https://example.com
 - Repository: <repository-url>
 - License: GPL 2
 
@@ -86,7 +86,7 @@ Always omit these unless the user explicitly asks otherwise:
 
 ## Metadata Rules
 
-- The H1 title must be the main plugin bundle ID, for example `# com.cdsoftware.lirion.posintegration`.
+- The H1 title must be the main plugin bundle ID, for example `# com.example.lirion.posintegration`.
 - Prefer repository URLs from the existing README, remote metadata, or visible project references.
 - Use `GPL 2` as the license unless repository evidence clearly says otherwise.
 - Use Casa del Software copyright format when no more specific valid project copyright exists.

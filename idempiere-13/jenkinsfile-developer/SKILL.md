@@ -15,7 +15,7 @@ It should be activated when the user asks to:
 
 # Operating Principles
 
-1. **Version-Matched Builder (iDempiere 13)**: Discover and use the target-platform builder image and branch compatible with the repository's iDempiere 13 baseline. Do not reuse a builder tag or target-platform branch from another major version.
+1. **Version-Matched Official Builder (iDempiere 13)**: Use `idempiereofficial/idempiere:source-release-13`, the official iDempiere source image for this baseline. Do not substitute private or third-party builder images. Keep the target-platform branch aligned with the repository baseline.
    - Configure any host Maven-cache mount through a job or environment variable; do not hardcode a host path in the skill or generated pipeline.
 2. **Automated Documentation Archiving**: Every `Jenkinsfile` MUST include the `Archive Readme` stage to convert the project's `README.md` to `readme.html` and publish it using Jenkins' `publishHTML`.
 3. **Aesthetic Consistency**: The generated `readme.html` must always use the premium dark-themed design system.
@@ -25,7 +25,7 @@ It should be activated when the user asks to:
 # Activation Guidance
 
 Trigger this skill for prompts like:
-- "create a jenkinsfile for com.cdsoftware.recaptcha"
+- "create a jenkinsfile for com.example.recaptcha"
 - "add readme archiving stage to the pipeline"
 - "standardize the build pipeline of the payroll plugin"
 - "update jenkinsfile to publish html docs"
@@ -56,7 +56,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                def multibranchJob = branchJob.getParent()
 
                // Define the list of dependency plugins (statically list them based on checked-out dependencies)
-               def dependenciesStr = "com.cdsoftware.payroll, com.cdsoftware.base" // or "None"
+               def dependenciesStr = "com.example.payroll, com.example.base" // or "None"
 
                def branchDescription = """
                <b>Plugin:</b> ${env.PLUGIN_NAME}<br/>
@@ -93,7 +93,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
    stage('Compile') {
        agent {
            docker {
-               image "${env.IDEMPIERE_BUILDER_IMAGE}"
+               image 'idempiereofficial/idempiere:source-release-13'
                // Optionally set IDEMPIERE_M2_CACHE_MOUNT in Jenkins, for example: -v <host-m2-cache>:/root/.m2
                args "--entrypoint='' -u root:root ${env.IDEMPIERE_M2_CACHE_MOUNT ?: ''}"
            }
@@ -126,10 +126,10 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
        in_list = False
        in_code = False
        in_table = False
-       
+
        for line in md_text.splitlines():
            line_stripped = line.rstrip()
-           
+
            if line_stripped.startswith("```"):
                if in_code:
                    html.append("</code></pre>")
@@ -138,14 +138,14 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                    html.append("<pre><code>")
                    in_code = True
                continue
-               
+
            if in_code:
                escaped = line.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
                html.append(escaped)
                continue
-               
+
            escaped = line_stripped.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-           
+
            if escaped.startswith("|") and escaped.endswith("|"):
                cells = [c.strip() for c in escaped.split("|")[1:-1]]
                if all(c.startswith("---") or c == "" for c in cells):
@@ -167,7 +167,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                if in_table:
                    html.append("</tbody></table>")
                    in_table = False
-           
+
            if escaped.startswith("# "):
                html.append(f"<h1>{escaped[2:]}</h1>")
            elif escaped.startswith("## "):
@@ -189,20 +189,20 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                    html.append("<br/>")
                else:
                    html.append(f"<p>{escaped}</p>")
-                   
+
        if in_list:
            html.append("</ul>")
        if in_code:
            html.append("</code></pre>")
        if in_table:
            html.append("</tbody></table>")
-           
+
        result = "\\n".join(html)
        result = re.sub(r"\\*\\*(.*?)\\*\\*", r"<strong>\\1</strong>", result)
        result = re.sub(r"\\*(.*?)\\*", r"<em>\\1</em>", result)
        result = re.sub(r"`(.*?)`", r"<code>\\1</code>", result)
        result = re.sub(r"\\[(.*?)\\]\\((.*?)\\)", r'<a href="\\2" target="_blank">\\1</a>', result)
-       
+
        return result
 
    with open("README.md", "r", encoding="utf-8") as f:
@@ -234,7 +234,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                --table-even-bg: #111827;
                --table-odd-bg: #151f32;
            }}
-           
+
            body {{
                font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
                background: var(--bg-color);
@@ -244,7 +244,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                max-width: 850px;
                margin: auto;
            }}
-           
+
            .markdown-body {{
                background: var(--container-bg);
                border: 1px solid var(--border-color);
@@ -252,7 +252,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                padding: 40px;
                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
            }}
-           
+
            h1, h2, h3, h4 {{
                color: #ffffff;
                font-weight: 700;
@@ -260,7 +260,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                margin-bottom: 16px;
                line-height: 1.3;
            }}
-           
+
            h1 {{
                font-size: 2.25em;
                border-bottom: 2px solid var(--border-color);
@@ -270,21 +270,21 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                -webkit-background-clip: text;
                -webkit-text-fill-color: transparent;
            }}
-           
+
            h2 {{
                font-size: 1.6em;
                border-bottom: 1px solid var(--border-color);
                padding-bottom: 0.3em;
            }}
-           
+
            h3 {{ font-size: 1.3em; }}
            h4 {{ font-size: 1.1em; }}
-           
+
            p {{ margin-top: 0; margin-bottom: 20px; color: var(--text-color); }}
-           
+
            ul {{ padding-left: 2em; margin-top: 0; margin-bottom: 20px; }}
            li {{ margin-top: 0.5em; }}
-           
+
            pre {{
                background: var(--pre-bg);
                border: 1px solid var(--border-color);
@@ -296,7 +296,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                line-height: 1.5;
                margin-bottom: 20px;
            }}
-           
+
            code {{
                font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
                background: var(--code-bg);
@@ -305,7 +305,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                border-radius: 4px;
                font-size: 88%;
            }}
-           
+
            pre code {{
                background: none;
                padding: 0;
@@ -313,7 +313,7 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                font-size: 100%;
                color: #f8fafc;
            }}
-           
+
            a {{
                color: var(--primary);
                text-decoration: none;
@@ -321,12 +321,12 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                border-bottom: 1px dashed var(--primary);
                transition: all 0.2s ease;
            }}
-           
+
            a:hover {{
                color: var(--primary-hover);
                border-bottom-style: solid;
            }}
-           
+
            table {{
                border-spacing: 0;
                border-collapse: collapse;
@@ -337,26 +337,26 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
                overflow: hidden;
                border: 1px solid var(--border-color);
            }}
-           
+
            table th, table td {{
                padding: 10px 15px;
                border: 1px solid var(--border-color);
            }}
-           
+
            table th {{
                background-color: var(--table-header-bg);
                font-weight: 600;
                text-align: left;
            }}
-           
+
            table tr {{
                background-color: var(--table-odd-bg);
            }}
-           
+
            table tr:nth-child(2n) {{
                background-color: var(--table-even-bg);
            }}
-           
+
            pre::-webkit-scrollbar {{
                width: 8px;
                height: 8px;
@@ -403,5 +403,5 @@ When creating or updating a `Jenkinsfile`, follow these ordered steps:
 # Output Contract
 
 When writing or updating a `Jenkinsfile`, output:
-1. **Target file path** of the `Jenkinsfile` (e.g. `sources/plugins/com.cdsoftware.recaptcha/Jenkinsfile`).
+1. **Target file path** of the `Jenkinsfile` (e.g. `sources/plugins/com.example.recaptcha/Jenkinsfile`).
 2. **Updated Jenkinsfile content** incorporating the standardized compile and README archiving stages.

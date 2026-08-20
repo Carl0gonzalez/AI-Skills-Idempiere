@@ -30,7 +30,7 @@ Trigger this skill for prompts like:
 - "create a callout for C_Order.DateOrdered to change the date promised"
 - "implement a process class to close outdated inactive requests"
 - "develop a model validator to enforce that prices are not below cost"
-- "write a process factory for com.cdsoftware.recaptcha"
+- "write a process factory for com.example.recaptcha"
 
 # Constraints
 
@@ -95,7 +95,7 @@ When creating a component, produce:
 
 ### 1. Process Class
 ```java
-package com.cdsoftware.plugin.process;
+package com.example.plugin.process;
 
 import java.util.logging.Level;
 import org.adempiere.exceptions.AdempiereException;
@@ -105,7 +105,7 @@ import org.compiere.process.SvrProcess;
 /**
  * AD Registration:
  * 1. Open "Report & Process" window.
- * 2. Create a new record with ClassName = com.cdsoftware.plugin.process.MyCustomProcess
+ * 2. Create a new record with ClassName = com.example.plugin.process.MyCustomProcess
  */
 public class MyCustomProcess extends SvrProcess {
 
@@ -136,7 +136,7 @@ public class MyCustomProcess extends SvrProcess {
 
 ### 2. Callout Class
 ```java
-package com.cdsoftware.plugin.callout;
+package com.example.plugin.callout;
 
 import java.util.Properties;
 import org.compiere.model.CalloutEngine;
@@ -146,7 +146,7 @@ import org.compiere.model.GridTab;
 /**
  * AD Registration:
  * 1. Open "Table and Column" window, find target table and column.
- * 2. Set Callout = com.cdsoftware.plugin.callout.MyCallout.validateField
+ * 2. Set Callout = com.example.plugin.callout.MyCallout.validateField
  */
 public class MyCallout extends CalloutEngine {
 

@@ -67,7 +67,7 @@ When auditing a class for testing, classify the approach:
 1. **Analyze Component**: Identify the type of component (Process, Callout, Validator, Utility).
 2. **Assess Testability**: Check for static dependencies. If highly coupled, present a refactoring proposal to the user first.
 3. **Draft the Test Class**:
-   - Locate the target test class path (e.g., `com.cdsoftware.recaptcha.test` fragment).
+   - Locate the target test class path (e.g., `com.example.recaptcha.test` fragment).
    - Write the JUnit 5 test following the AAA pattern.
 4. **Output the Code**:
    - Provide file paths and full Java code.
@@ -86,7 +86,7 @@ When generating tests, produce:
 
 ### 1. Testing a SvrProcess
 ```java
-package com.cdsoftware.plugin.process.test;
+package com.example.plugin.process.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -97,7 +97,7 @@ import org.compiere.process.ProcessInfo;
 import org.compiere.process.ProcessInfoParameter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import com.cdsoftware.plugin.process.MyCustomProcess;
+import com.example.plugin.process.MyCustomProcess;
 
 class MyCustomProcessTest {
 
@@ -114,7 +114,7 @@ class MyCustomProcessTest {
 		ProcessInfoParameter p1 = new ProcessInfoParameter("ParameterName", 0, null, null, null);
 		ProcessInfo pi = new ProcessInfo("MyProcess", 100);
 		pi.setParameter(new ProcessInfoParameter[]{p1});
-		
+
 		// Act & Assert
 		assertThrows(Exception.class, () -> {
 			// This exercises prepare() and doIt()
@@ -126,7 +126,7 @@ class MyCustomProcessTest {
 
 ### 2. Testing a Callout (Stubbing UI Contexts)
 ```java
-package com.cdsoftware.plugin.callout.test;
+package com.example.plugin.callout.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -135,7 +135,7 @@ import java.util.Properties;
 import org.compiere.model.GridField;
 import org.compiere.model.GridTab;
 import org.junit.jupiter.api.Test;
-import com.cdsoftware.plugin.callout.MyCallout;
+import com.example.plugin.callout.MyCallout;
 
 class MyCalloutTest {
 
@@ -146,10 +146,10 @@ class MyCalloutTest {
 		Properties ctx = new Properties();
 		GridTab mTab = mock(GridTab.class);
 		GridField mField = mock(GridField.class);
-		
+
 		// Act
 		callout.validateField(ctx, 1, mTab, mField, "TriggerValue");
-		
+
 		// Assert
 		verify(mTab).setValue("AnotherColumn", "NewValue");
 	}
@@ -158,7 +158,7 @@ class MyCalloutTest {
 
 ### 3. Reflection Helper for Static Contexts
 ```java
-package com.cdsoftware.plugin.test.util;
+package com.example.plugin.test.util;
 
 import java.lang.reflect.Field;
 
