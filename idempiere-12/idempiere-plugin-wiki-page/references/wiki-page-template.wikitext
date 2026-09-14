@@ -1,6 +1,6 @@
 * '''Maintainer:''' <Maintainer name> &lt;<public-email@example.com>&gt;
 * '''Sponsors:''' [https://example.com Sponsor name]
-* '''Status:''' <Tested with release X.Y.Z | Targeting iDempiere X>
+* '''Status:''' Tested with release <highest version branch>
 * '''License:''' [<license-url> <license-name>]
 * '''Sources:''' [<repository-url> <public plugin name>]
 * '''Documentation:''' [<documentation-url> Repository README]
