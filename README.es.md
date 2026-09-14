@@ -19,7 +19,7 @@ El catálogo cubre plugins OSGi, Application Dictionary, PIPO/2Pack, PostgreSQL,
 | | |
 |---|---|
 | **Versiones compatibles** | iDempiere 8, 10, 12 y 13 |
-| **Skills por versión** | 13 skills especializadas |
+| **Skills por versión** | 14 skills especializadas |
 | **Formato principal** | Directorios autónomos con `SKILL.md` |
 | **Instalación** | Copia o enlace simbólico de una versión en la biblioteca de skills del agente |
 | **Repositorio complementario opcional** | [`idempiere-dev-environments`](https://github.com/Carl0gonzalez/idempiere-dev-environments) para entornos de desarrollo aislados |
@@ -107,6 +107,7 @@ Las siguientes skills están disponibles en cada directorio de versión, salvo q
 | [`idempiere-plugin-designer`](idempiere-12/idempiere-plugin-designer/SKILL.md) | Diseño técnico de plugins. | Convierte diseños funcionales en especificaciones Java y OSGi. |
 | [`idempiere-plugin-manual-generator`](idempiere-12/idempiere-plugin-manual-generator/SKILL.md) | Generación de manuales funcionales. | Produce documentación de uso y guías de prueba desde código y metadatos. |
 | [`idempiere-plugin-readme`](idempiere-12/idempiere-plugin-readme/SKILL.md) | Documentación de repositorios de plugins. | Crea y actualiza README en inglés basados en el contenido real del proyecto. |
+| [`idempiere-plugin-wiki-page`](idempiere-12/idempiere-plugin-wiki-page/SKILL.md) | Documentación de plugins en la wiki de iDempiere. | Normaliza páginas de Available Plugins desde el README, contrastado con código y metadatos. |
 | [`idempiere-plugin-test-developer`](idempiere-12/idempiere-plugin-test-developer/SKILL.md) | Desarrollo de pruebas para plugins. | Define pruebas unitarias, mocks y estrategias de aislamiento. |
 | [`jenkinsfile-developer`](idempiere-12/jenkinsfile-developer/SKILL.md) | Mantenimiento de pipelines Jenkins. | Estandariza compilación y publicación de documentación por versión. |
 | [`skill-architect`](idempiere-12/skill-architect/SKILL.md) | Diseño de nuevas skills. | Crea capacidades enfocadas cuando no existe una skill adecuada. |

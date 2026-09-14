@@ -29,6 +29,7 @@ Below is a summary of the custom skills currently available in this repository:
 | [`idempiere-plugin-designer`](idempiere-plugin-designer/SKILL.md) | Designs iDempiere 13 plugin implementations. | Translates functional designs into Java and OSGi specifications. |
 | [`idempiere-plugin-manual-generator`](idempiere-plugin-manual-generator/SKILL.md) | Generates functional plugin manuals. | Produces English user manuals and test guides from code and metadata. |
 | [`idempiere-plugin-readme`](idempiere-plugin-readme/SKILL.md) | Standardizes plugin repository documentation. | Creates English README files from actual OSGi project contents. |
+| [`idempiere-plugin-wiki-page`](idempiere-plugin-wiki-page/SKILL.md) | Standardizes iDempiere wiki plugin pages. | Creates Available Plugins pages from README content verified against code and metadata. |
 | [`idempiere-plugin-test-developer`](idempiere-plugin-test-developer/SKILL.md) | Develops tests for plugin components. | Creates unit tests, mocks and isolation strategies. |
 | [`jenkinsfile-developer`](jenkinsfile-developer/SKILL.md) | Maintains iDempiere 13 Jenkins pipelines. | Standardizes compilation and README publishing without host-specific paths. |
 | [`skill-architect`](skill-architect/SKILL.md) | Designs focused reusable skills. | Scaffolds capabilities not already covered by the library. |

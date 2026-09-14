@@ -1,0 +1,51 @@
+* '''Maintainer:''' <Maintainer name> &lt;<public-email@example.com>&gt;
+* '''Sponsors:''' [https://example.com Sponsor name]
+* '''Status:''' <Tested with release X.Y.Z | Targeting iDempiere X>
+* '''License:''' [<license-url> <license-name>]
+* '''Sources:''' [<repository-url> <public plugin name>]
+* '''Documentation:''' [<documentation-url> Repository README]
+
+== Description ==
+
+<One or two short paragraphs explaining the plugin's purpose and user-visible result.>
+
+== Features ==
+
+* <Primary capability.>
+* <Additional verified capability.>
+
+== <Plugin-specific functional section> ==
+
+{| class="wikitable"
+! <Item> !! <Purpose> !! <Configuration or behavior>
+|-
+| <code>Example</code> || <What it does.> || <When or how it applies.>
+|}
+
+== Requirements ==
+
+* <Supported or targeted iDempiere version, with evidence-appropriate wording.>
+* <Java version or external dependency when relevant.>
+* <Functional prerequisite.>
+
+== Installation ==
+
+# <Deploy or install the OSGi bundle.>
+# <Apply or verify dictionary artifacts when required.>
+# <Restart or refresh the relevant runtime service when required.>
+
+== Configuration ==
+
+# <Open the relevant iDempiere window or record.>
+# <Configure the required values.>
+# <Save and verify the expected behavior.>
+
+== <Fallback behavior, limitations, or compatibility notes> ==
+
+<Include only verified operational information that helps users avoid an incorrect result.>
+
+== Documentation and source code ==
+
+* [<repository-url> Source code and README]
+
+[[Category:Available Plugins|<public sort key>]]

@@ -19,7 +19,7 @@ The catalog covers OSGi plugins, the Application Dictionary, PIPO/2Pack, Postgre
 | | |
 |---|---|
 | **Supported versions** | iDempiere 8, 10, 12, and 13 |
-| **Skills per version** | 13 focused skills |
+| **Skills per version** | 14 focused skills |
 | **Primary format** | Self-contained `SKILL.md` directories |
 | **Installation** | Copy or symlink one version set into your agent's skill library |
 | **Optional companion** | [`idempiere-dev-environments`](https://github.com/Carl0gonzalez/idempiere-dev-environments) for isolated development environments |
@@ -98,6 +98,7 @@ The following skills are available in each version directory unless a future pla
 | [`idempiere-plugin-designer`](idempiere-12/idempiere-plugin-designer/SKILL.md) | Designs plugin implementations. | Converts functional designs into Java and OSGi specifications. |
 | [`idempiere-plugin-manual-generator`](idempiere-12/idempiere-plugin-manual-generator/SKILL.md) | Generates functional manuals. | Produces user documentation and test guides from code and metadata. |
 | [`idempiere-plugin-readme`](idempiere-12/idempiere-plugin-readme/SKILL.md) | Documents plugin repositories. | Creates and updates English README files based on the actual project contents. |
+| [`idempiere-plugin-wiki-page`](idempiere-12/idempiere-plugin-wiki-page/SKILL.md) | Documents plugins in the iDempiere wiki. | Normalizes Available Plugins pages from README content verified against code and metadata. |
 | [`idempiere-plugin-test-developer`](idempiere-12/idempiere-plugin-test-developer/SKILL.md) | Develops plugin tests. | Defines unit tests, mocks, and isolation strategies. |
 | [`jenkinsfile-developer`](idempiere-12/jenkinsfile-developer/SKILL.md) | Maintains Jenkins pipelines. | Standardizes version-aware builds and documentation publishing. |
 | [`skill-architect`](idempiere-12/skill-architect/SKILL.md) | Designs new skills. | Creates focused capabilities when no suitable skill exists. |
