@@ -22,21 +22,23 @@ Do NOT trigger this skill to design the initial database model (use `idempiere-m
 1. **PO Class Conventions**:
    - Model classes must extend the generated `X_` classes (e.g. `MMyTable` extending `X_XX_MyTable`).
    - Transactional documents should implement the `DocAction` interface if they use the document routing engine.
-2. **Standard Factories**:
-   - Technical designs must specify the creation and registration of standard factory classes:
-     - `IModelFactory` to instantiate custom PO classes dynamically.
-     - `IProcessFactory` to resolve SvrProcess implementations.
-     - `IColumnCalloutFactory` (or custom callout registry) to resolve field callouts.
-     - `IEventFactory` (or event registrations) for model validator bindings.
+2. **Existing registration first**:
+   - Reuse actual IModelFactory/IProcessFactory/IColumnCalloutFactory mappings or target-supported annotation/mapped services.
+   - Create only the missing mechanism required by the design; do not add all factories by default.
+   - Event registrations use the actual handler/delegate APIs. Do not invent IEventFactory.
 3. **OSGi registration**:
    - Inspect the target plugin's `MANIFEST.MF`, `build.properties`, and existing registrations first.
    - Follow its established registration style: `OSGI-INF/*.xml` when the bundle declares service components, or DS annotations only when the bundle already builds and exposes them correctly.
 4. **Event Handler Topics**:
    - Use standard `IEventTopics` constants for custom event handlers (e.g., `PO_AFTER_NEW`, `PO_BEFORE_CHANGE`, `DOC_BEFORE_PREPARE`).
 5. **Callout Interfaces**:
-   - Custom Callout classes should implement the `IColumnCallout` interface. Avoid hardcoding logic in legacy UI controllers.
+   - Follow the existing CalloutEngine or IColumnCallout registration. Use annotations only when the target supports them; cross-entry invariants need model/event enforcement.
 6. **Process Classes**:
    - Custom processes must extend `SvrProcess` and override `prepare()` (for parameter parsing) and `doIt()` (for core execution logic).
+
+# Context and design boundaries
+
+Read target instructions and the architecture skill when available. Core contributions follow its Jira/database policy; do not author migrations/AD IDs. Private plugins retain their own conventions. Preserve public/protected APIs with overloads/deprecation and search callers. Prefer AD or existing components before adding packages/layers; pass owning transactions and preserve tenant/role access.
 
 # Workflow
 
@@ -63,7 +65,7 @@ Follow these steps in sequence when the skill triggers:
 
 ## Step 5: Define Processes and Parameters
 1. Propose custom process classes extending `SvrProcess`.
-2. Map the process parameters to variables populated in `prepare()`.
+2. Map real AD parameters to prepare() parsing or verified @Parameter injection under the existing factory.
 3. Provide a pseudo-code or step-by-step description of the execution flow in `doIt()`.
 
 ## Step 6: Identify OSGi Declarative Services Configurations

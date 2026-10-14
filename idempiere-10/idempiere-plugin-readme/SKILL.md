@@ -88,8 +88,8 @@ Always omit these unless the user explicitly asks otherwise:
 
 - The H1 title must be the main plugin bundle ID, for example `# com.example.lirion.posintegration`.
 - Prefer repository URLs from the existing README, remote metadata, or visible project references.
-- Use `GPL 2` as the license unless repository evidence clearly says otherwise.
-- Use Casa del Software copyright format when no more specific valid project copyright exists.
+- Derive the license from LICENSE, headers and metadata. Do not invent a license when evidence is absent.
+- Derive copyright and owner URLs from repository evidence or explicit user context. Use Casa del Software formatting only for its evidenced project family.
 - Contributors must use this format: `- Year Name <name@email.com>.`
 - If only a company contributor is known, use a concise company line only if supported by existing project content.
 - Always ask the user for the list of contributors and their email addresses if they are not explicitly defined in the project files.

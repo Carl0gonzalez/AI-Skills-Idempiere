@@ -1,13 +1,13 @@
 ---
 name: skill-architect
-description: Creates new focused Antigravity skills when a task requires reusable capabilities that are not already covered by existing skills in the current workspace or user skill library.
+description: Creates new focused AI-agent skills when a task requires reusable capabilities that are not already covered by existing skills in the current workspace or user skill library.
 ---
 
 # Purpose
 
-This skill designs and scaffolds new Antigravity-compatible skills only when a reusable capability is missing.
+This skill designs and scaffolds new agent-compatible skills only when a reusable capability is missing.
 
-It should be activated when the user asks Antigravity to:
+It should be activated when the user asks the agent to:
 
 - create a new skill
 - scaffold a reusable workflow

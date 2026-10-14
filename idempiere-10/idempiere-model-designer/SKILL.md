@@ -36,6 +36,14 @@ Do NOT trigger this skill for general non-ERP database modeling or raw SQL/Java 
 4. **No Placeholders**:
    - Column types and relationships must be fully specified (e.g., numeric, varchar, char(1), timestamp). Do not leave vague descriptors like "details" or "extra information" without proposing concrete schemas.
 
+# Target context and generation boundary
+
+For core, read the actual AGENTS.md and core database-change instructions: provide exact UI specifications and review developer-generated migrations with Centralized IDs. Do not generate DDL/migration statements, AD IDs/UUIDs or edit X_*/I_* sources. For private plugins follow their Entity Type, supported databases and export policy; core restrictions do not automatically apply.
+
+Prefer existing domain entities and AD configuration. Specify reference type/length/default/mandatory status rather than imposing PostgreSQL physical types on Oracle. Standard audit columns are a baseline, not the complete table definition: verify primary key, UUID and generated-model requirements in the actual release.
+
+For model registration, read [references/model-registration.md](references/model-registration.md).
+
 # Workflow
 
 Follow these steps in sequence when the skill triggers:

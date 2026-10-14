@@ -3,6 +3,10 @@ name: idempiere-pipo-integrity-review
 description: Performs an iDempiere PackOut preflight by comparing Application Dictionary columns with physical PostgreSQL or Oracle types and checking PIPO dependencies before export.
 ---
 
+## Core versus plugin boundary
+
+For core dictionary/schema work, follow target AGENTS.md and developer UI/Centralized-ID generation. Review only; do not author or repair core migration SQL, DDL, IDs/UUIDs or generated models. For private plugin PackOut follow its Entity Type/export policy and supported databases. Preflight is not permission to mutate AD or execute PackIn. Distinguish physical/dictionary inspection from successful import/runtime validation.
+
 # Purpose
 
 Review iDempiere Application Dictionary infrastructure before creating or installing a 2Pack/PIPO package. The review must run before every export; correct the source dictionary rather than repairing a ZIP after export.

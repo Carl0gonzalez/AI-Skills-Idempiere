@@ -20,6 +20,12 @@ Use this skill when the user asks to build, compile, package, or diagnose compil
 - Do not delete build outputs or alter dependency metadata unless the user explicitly requests it.
 - Never expose credentials, tokens, or repository URLs containing secrets.
 
+# Scope and evidence
+
+For core builds use the actual core headless-build/unit-test guidance rather than applying a plugin builder to the core reactor. Verify the release JDK and wrapper/target metadata. Compilation does not prove test execution, DS activation, PackIn or database compatibility.
+
+If tests are requested, enable them through the documented builder and inspect new report timestamps/counts. The reference core ./mvnw verify skips tests unless -DskipTests=false; do not assume plugin builders behave the same way. Preserve unrelated outputs and use clean builds in isolated review workspaces when switching revisions.
+
 # Workflow
 
 1. Identify the plugin bundle, its `MANIFEST.MF`, the target-platform directory, and documented build command.

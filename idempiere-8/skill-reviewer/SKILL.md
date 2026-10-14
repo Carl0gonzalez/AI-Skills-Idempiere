@@ -1,11 +1,11 @@
 ---
 name: skill-reviewer
-description: Reviews Antigravity skills for naming quality, activation clarity, scope control, duplication risk, folder structure, and instruction quality before adoption.
+description: Reviews AI-agent skills for naming quality, activation clarity, scope control, duplication risk, folder structure, and instruction quality before adoption.
 ---
 
 # Purpose
 
-This skill reviews an Antigravity-compatible skill before it is accepted into a workspace or user skill library.
+This skill reviews an agent-compatible skill before it is accepted into a workspace or user skill library.
 
 It should be activated when the user asks to:
 
@@ -167,4 +167,4 @@ Activate this skill for prompts like:
 - "is this SKILL.md too broad?"
 - "improve the activation description of this skill"
 - "check whether this new skill duplicates another one"
-- "rewrite this skill so Antigravity triggers it more reliably"
+- "rewrite this skill so the agent triggers it more reliably"
