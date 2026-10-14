@@ -12,16 +12,16 @@
 
 This repository centralizes reusable instructions for AI development assistants. It keeps guidance consistent and separates it by major iDempiere version, reducing the risk of applying assumptions, build settings, or platform-specific instructions to an incompatible codebase.
 
-The catalog covers OSGi plugins, the Application Dictionary, PIPO/2Pack, PostgreSQL, Jenkins, testing, and functional documentation.
+The catalog covers OSGi plugins, version upgrades, the Application Dictionary, PIPO/2Pack, PostgreSQL, Jenkins, testing, and functional documentation.
 
 ## At a glance
 
 | | |
 |---|---|
-| **Supported versions** | iDempiere 8, 10, 12, and 13 |
-| **Skills per version** | 14 focused skills |
+| **Versioned sets** | iDempiere 8, 10, 12, and 13; shared APIs require target-release verification |
+| **Catalog** | 15 skills per version + 11 shared skills + 7 core-contribution skills (33 distinct names) |
 | **Primary format** | Self-contained `SKILL.md` directories |
-| **Installation** | Copy or symlink one version set into your agent's skill library |
+| **Installation** | Select one target set and relevant shared/core skills; review existing-name conflicts first |
 | **Optional companion** | [`idempiere-dev-environments`](https://github.com/Carl0gonzalez/idempiere-dev-environments) for isolated development environments |
 | **Safety baseline** | Version isolation, portable instructions, validation, and read-only database access by default |
 
@@ -31,6 +31,9 @@ The catalog covers OSGi plugins, the Application Dictionary, PIPO/2Pack, Postgre
 - [Organization rules](#organization-rules)
 - [Available skills](#available-skills)
 - [Meta-skills: creating and reviewing skills](#meta-skills-creating-and-reviewing-skills)
+- [Plugin version upgrade workflow](#plugin-version-upgrade-workflow)
+- [Shared skills and core contributions](#shared-skills-and-core-contributions)
+- [Skill revisions and bilingual wiki](#skill-revisions-and-bilingual-wiki)
 - [Version matrix](#version-matrix)
 - [Installing from a local clone](#installing-from-a-local-clone)
 - [Using isolated environments with direnv](#using-isolated-environments-with-direnv)
@@ -46,12 +49,17 @@ The catalog covers OSGi plugins, the Application Dictionary, PIPO/2Pack, Postgre
 ├── idempiere-10/                # Skills for iDempiere 10 repositories
 ├── idempiere-12/                # Skills for iDempiere 12 repositories
 ├── idempiere-13/                # Skills for iDempiere 13 repositories
+├── shared/                      # Cross-version skills; verify target APIs
+├── core/                        # Core contribution adaptations
+├── docs/                        # Adoption review and provenance
+├── scripts/                     # Read-only catalog validation
+├── tests/                       # Local helper behavior checks
 ├── LICENSE                      # MIT License
 ├── README.es.md                 # Spanish documentation
 └── README.md                    # English catalog and usage guide
 ```
 
-Each version directory contains a self-contained copy of the skills compatible with that iDempiere line. You can back up, link, or install a complete set without mixing instructions from different platforms.
+Each version directory retains its 15 self-contained skill entries. shared/ centralizes cross-version workflows with explicit API checks; core/ centralizes contribution guidance tied to upstream policy. A directory label does not establish compilation or runtime compatibility.
 
 | Directory | Scope | Recommended use |
 |---|---|---|
@@ -94,6 +102,7 @@ The following skills are available in each version directory unless a future pla
 | [`idempiere-model-designer`](idempiere-12/idempiere-model-designer/SKILL.md) | Designs data models and functional architecture. | Defines entities, relationships, documents, and ERP rules. |
 | [`idempiere-pipo-integrity-review`](idempiere-12/idempiere-pipo-integrity-review/SKILL.md) | Runs PackOut/PIPO preflight checks. | Verifies dependencies and compatibility between the dictionary and database. |
 | [`idempiere-plugin-compiler`](idempiere-12/idempiere-plugin-compiler/SKILL.md) | Builds OSGi plugins. | Discovers the repository builder and reports generated artifacts. |
+| [`idempiere-plugin-version-upgrader`](idempiere-12/idempiere-plugin-version-upgrader/SKILL.md) | Upgrades existing OSGi plugins between iDempiere releases. | Uses a version branch from `master`, aligns Java/PostgreSQL/build compatibility, compiles locally, and gates the PR on review. |
 | [`idempiere-plugin-component-developer`](idempiere-12/idempiere-plugin-component-developer/SKILL.md) | Develops internal plugin components. | Implements processes, callouts, validators, and factories. |
 | [`idempiere-plugin-designer`](idempiere-12/idempiere-plugin-designer/SKILL.md) | Designs plugin implementations. | Converts functional designs into Java and OSGi specifications. |
 | [`idempiere-plugin-manual-generator`](idempiere-12/idempiere-plugin-manual-generator/SKILL.md) | Generates functional manuals. | Produces user documentation and test guides from code and metadata. |
@@ -160,12 +169,67 @@ Evaluate its name, frontmatter, activation criteria, scope, duplication risk, in
 
 > Recommended workflow: create or update the skill with `skill-architect`, review it with `skill-reviewer`, apply the accepted corrections, and validate the result before committing it.
 
+## Shared skills and core contributions
+
+Select one version set plus the relevant shared skills. Select core skills only for core contributions; the actual core checkout's AGENTS.md and task skills take precedence. Do not install all version copies with the same name together, and do not overwrite installed skills automatically. This catalog update does not install anything.
+
+shared/ contains portable workflows, not a claim that every annotation, mapped service or ZK API exists in every release. If an API is absent, retain the compatible existing mechanism or report the limitation.
+
+| Skill | Purpose |
+|---|---|
+| [`idempiere-architecture-patterns`](shared/idempiere-architecture-patterns/SKILL.md) | Architecture and core/plugin/environment routing. |
+| [`idempiere-plugin-quality-gate`](shared/idempiere-plugin-quality-gate/SKILL.md) | Execution and evidence for plugin tests and quality. |
+| [`crear-entornos-idempiere-envrc`](shared/crear-entornos-idempiere-envrc/SKILL.md) | Create/review isolated direnv environments. |
+| [`documentar-entornos-idempiere-envrc`](shared/documentar-entornos-idempiere-envrc/SKILL.md) | Document actual environment behavior. |
+| [`gestionar-tareas`](shared/gestionar-tareas/SKILL.md) | Manage an existing explicit task registry. |
+| [`idempiere-event-annotation`](shared/idempiere-event-annotation/SKILL.md) | Annotation-based model/document/login/facts delegates. |
+| [`idempiere-rest-resource`](shared/idempiere-rest-resource/SKILL.md) | REST contracts and ResourceExtension registration. |
+| [`idempiere-window-validator`](shared/idempiere-window-validator/SKILL.md) | Window interception with complete callback paths. |
+| [`idempiere-zul-form`](shared/idempiere-zul-form/SKILL.md) | ZUL forms, controllers, wiring and resources. |
+| [`idempiere-grouped-listbox`](shared/idempiere-grouped-listbox/SKILL.md) | Grouped models, renderers and bounded data loading. |
+| [`idempiere-wlistbox-custom-editor`](shared/idempiere-wlistbox-custom-editor/SKILL.md) | Column editor providers and display customization. |
+
+The seven core skills and their execution boundaries are indexed in [core/README.md](core/README.md). See [shared/README.md](shared/README.md), [provenance](docs/SOURCES.md), [installed/custom-skill inventory](docs/INSTALLED_SKILLS_INVENTORY.md) and the [two-pass adoption review](docs/ADOPTION_REVIEW.es.md).
+
+Validation requires Python 3 and PyYAML: `python3 scripts/validate_catalog.py`. The local PR-helper checks run with `python3 tests/test_review_pr.py`; they use temporary Git repositories and no network/database.
+
+
+## Plugin version upgrade workflow
+
+`idempiere-plugin-version-upgrader` provides a controlled path for moving an existing plugin to another major iDempiere release:
+
+1. Inspect the repository, source release, official target branch, migration notes, Java level, PostgreSQL support, and build system without changing files.
+2. Present the compatibility findings, exact files expected to change, branch name, build command, and PostgreSQL validation plan for approval.
+3. Create the corresponding version branch, such as `12.0.0`, from the verified `master` base and apply the upgrade only there.
+4. Align Maven/Tycho, OSGi, target-platform, Java, JDBC, and SQL code with the target release.
+5. Compile every updated plugin, fragment, feature, dependency, and test bundle locally with the target JDK and target platform.
+6. Review all SQL/JDBC statically and execute affected paths against a supported local or disposable PostgreSQL instance when database behavior is involved.
+7. Present the final diff, build evidence, PostgreSQL evidence, generated artifacts, and remaining limitations.
+8. Push the branch and create a PR targeting `master` only after explicit approval of that reviewable result.
+
+A successful Maven/Tycho build verifies Java and OSGi resolution for the compiled paths. PostgreSQL compatibility requires database-backed tests; when no suitable target database is available, the result must be reported as static review only.
+
+## Skill revisions and bilingual wiki
+
+Target iDempiere versions and skill content revisions are different. The catalog has four target sets (8/10/12/13), shared workflows and core-only workflows. No published release or tested runtime status is inferred from a directory name.
+
+- [Versioning and compatibility matrix](docs/VERSIONING.md).
+- [Exact revisions of all 78 skill entries](docs/skill-versions.json).
+- [English wiki](docs/wiki/Home.md) and [Spanish wiki](docs/wiki/Inicio.md).
+- [MediaWiki editions and publication state](docs/wiki/README.md).
+- Each version, shared and core README has an English/Spanish language switch.
+
+After an intended skill/resource change, review it and run `python3 scripts/catalog_versions.py --write`. Use `python3 scripts/catalog_versions.py --check` to verify the recorded revisions without writing. This tracks the repository contents, not the installed skill library.
+
 ## Version matrix
+
+This matrix shows documented workflow coverage, not tested runtime support. Exact APIs/build requirements are verified in the target project.
 
 | Area | iDempiere 8 | iDempiere 10 | iDempiere 12 | iDempiere 13 |
 |---|:---:|:---:|:---:|:---:|
 | Modeling, migrations, and PIPO | ✓ | ✓ | ✓ | ✓ |
 | Plugin design, development, and testing | ✓ | ✓ | ✓ | ✓ |
+| Controlled plugin version upgrades | ✓ | ✓ | ✓ | ✓ |
 | Documentation and user manuals | ✓ | ✓ | ✓ | ✓ |
 | Safe PostgreSQL diagnostics | ✓ | ✓ | ✓ | ✓ |
 | Version-aware Jenkins support | ✓ | ✓ | ✓ | ✓ |
@@ -178,7 +242,7 @@ Evaluate its name, frontmatter, activation criteria, scope, duplication risk, in
 Clone this repository and ask an AI assistant to install the skills from the local version directory. This approach keeps a versioned copy, makes the target iDempiere line explicit, and lets the agent use the installation mechanism supported by its environment.
 
 1. Clone the repository in a location you control.
-2. Select the required directory: `idempiere-8/`, `idempiere-10/`, `idempiere-12/`, or `idempiere-13/`.
+2. Select one required version directory and relevant `shared/` skills. Add `core/` only for core work; do not load duplicate names from multiple version sets.
 3. Copy the prompt below and replace the values inside `<...>`.
 
 ```text
@@ -231,8 +295,13 @@ export SKILLS_BACKUP_ROOT="${SKILLS_BACKUP_ROOT:?Set SKILLS_BACKUP_ROOT before a
 mkdir -p "$CODEX_HOME/skills"
 
 for skill_dir in "$SKILLS_BACKUP_ROOT/idempiere-$IDEMPIERE_VERSION"/*; do
-  [ -d "$skill_dir" ] || continue
-  ln -sfn "$skill_dir" "$CODEX_HOME/skills/$(basename "$skill_dir")"
+  [ -f "$skill_dir/SKILL.md" ] || continue
+  skill_destination="$CODEX_HOME/skills/$(basename "$skill_dir")"
+  if [ -e "$skill_destination" ] || [ -L "$skill_destination" ]; then
+    printf 'Existing skill preserved: %s\n' "$skill_destination"
+    continue
+  fi
+  ln -s "$skill_dir" "$skill_destination"
 done
 ```
 
@@ -275,7 +344,7 @@ Before adding or updating a skill:
 3. Keep instructions concise, operational, and free of local information.
 4. Validate the frontmatter and directory structure.
 5. Check for personal paths, credentials, or machine-specific configuration.
-6. Update this catalog when adding a capability.
+6. Update both README languages, the wiki and `docs/skill-versions.json` when the catalog changes.
 
 For complex changes, use `skill-reviewer` before adopting the skill.
 

@@ -1,0 +1,123 @@
+[[Skills de IA para iDempiere|Español]]
+
+* '''Owner:''' Carlo González
+* '''License:''' [https://github.com/Carl0gonzalez/AI-Skills-Idempiere/blob/main/LICENSE MIT]
+* '''Sources:''' [https://github.com/Carl0gonzalez/AI-Skills-Idempiere AI-Skills-Idempiere]
+* '''Status:''' Target sets for iDempiere 8, 10, 12 and 13; actual API compatibility requires target verification. Local draft; no release is declared.
+
+== Description ==
+
+A versioned library of AI-agent instructions for iDempiere plugins, environments and core contributions. It is not an OSGi plugin. The local catalog contains 78 entries and 33 distinct names.
+
+== Versioned workflows ==
+
+The same 15 names exist under each target line: 8, 10, 12 and 13. Select the actual release and never load competing copies of one name.
+
+{| class="wikitable"
+! Skill !! Purpose
+|-
+| <code>idempiere-local-postgres</code> || Read-only PostgreSQL diagnosis and explicit write controls.
+|-
+| <code>idempiere-migration-review</code> || Audit model, schema, AD and Java/OSGi consistency.
+|-
+| <code>idempiere-model-designer</code> || Specify entities, references, lifecycle and dictionary requirements.
+|-
+| <code>idempiere-pipo-integrity-review</code> || Review dictionary/physical types and PackOut dependencies.
+|-
+| <code>idempiere-plugin-compiler</code> || Discover the real target-platform builder and report artifacts.
+|-
+| <code>idempiere-plugin-version-upgrader</code> || Plan and verify existing-plugin upgrades on isolated release branches.
+|-
+| <code>idempiere-plugin-component-developer</code> || Implement processes, callouts, events and factories with compatible registration.
+|-
+| <code>idempiere-plugin-designer</code> || Translate functional requirements into minimal Java/OSGi designs.
+|-
+| <code>idempiere-plugin-manual-generator</code> || Derive English functional manuals and test guides from actual code/metadata.
+|-
+| <code>idempiere-plugin-readme</code> || Write English plugin README files using repository evidence.
+|-
+| <code>idempiere-plugin-wiki-page</code> || Prepare evidence-based MediaWiki pages for iDempiere plugins.
+|-
+| <code>idempiere-plugin-test-developer</code> || Write regression tests with the existing framework and isolated fixtures.
+|-
+| <code>jenkinsfile-developer</code> || Maintain release-aware Jenkins builds and documentation pipelines.
+|-
+| <code>skill-architect</code> || Design focused reusable skills when an existing workflow cannot cover the task.
+|-
+| <code>skill-reviewer</code> || Review activation, scope, overlap, structure and instruction quality.
+|}
+
+== Shared workflows ==
+
+{| class="wikitable"
+! Skill !! Purpose
+|-
+| <code>idempiere-architecture-patterns</code> || Choose the smallest compatible mechanism and distinguish core, plugin and environment.
+|-
+| <code>idempiere-plugin-quality-gate</code> || Coordinate test execution, coverage and honest quality evidence.
+|-
+| <code>crear-entornos-idempiere-envrc</code> || Create and review isolated direnv environments with static checks.
+|-
+| <code>documentar-entornos-idempiere-envrc</code> || Document the operational contract of an actual .envrc.
+|-
+| <code>gestionar-tareas</code> || Maintain an existing task registry when explicitly requested.
+|-
+| <code>idempiere-event-annotation</code> || Implement focused annotated delegates using target-version APIs.
+|-
+| <code>idempiere-rest-resource</code> || Define REST contracts, access checks and ResourceExtension registration.
+|-
+| <code>idempiere-window-validator</code> || Intercept window actions with complete callback paths.
+|-
+| <code>idempiere-zul-form</code> || Build ZUL forms, controllers, wiring and packaged resources.
+|-
+| <code>idempiere-grouped-listbox</code> || Implement grouped list models, renderers and bounded data access.
+|-
+| <code>idempiere-wlistbox-custom-editor</code> || Customize existing WListbox column editors/display behavior.
+|}
+
+== Core contributions ==
+
+{| class="wikitable"
+! Skill !! Purpose
+|-
+| <code>idempiere-contribution-workflow</code> || Prepare Jira-linked branches, focused commits, documentation and PRs.
+|-
+| <code>idempiere-core-coding-standards</code> || Preserve transactions, role access, API compatibility and dual-database behavior.
+|-
+| <code>idempiere-database-changes</code> || Specify UI changes and review developer-generated Centralized-ID migrations.
+|-
+| <code>idempiere-unit-tests</code> || Write/run core regression tests using declared GardenWorld fixtures.
+|-
+| <code>idempiere-headless-build-run</code> || Build core and handle authorized SyncDB/server operations with exact evidence.
+|-
+| <code>idempiere-pr-review</code> || Review in gates and test integration in an isolated worktree.
+|-
+| <code>idempiere-jira-tickets</code> || Draft reproducible bug/feature reports and private security reports.
+|}
+
+== Requirements and use ==
+
+# Read the real project's release, build, scaffold and repository instructions.
+# Select one version set and the shared workflows needed for the task.
+# For core, read its actual AGENTS.md and local skills before the central adaptations.
+# Inspect target APIs; preserve factories, transactions, role/client/org access and generated models.
+# Review installation conflicts separately; no installation or publication is performed by this page.
+
+An agent needs access to Markdown/resources. Python 3 and PyYAML validate the catalog. The local review helper uses Git 2.31+, Bash 3.2+ and local Git identity.
+
+== Versions and validation ==
+
+The target iDempiere line is not a skill release number. Per-skill SHA-256 revisions identify instructions and all resources in docs/skill-versions.json. Published releases require a deliberate tag. No release-tested status is inferred from a version folder.
+
+<pre>
+python3 scripts/validate_catalog.py
+python3 scripts/catalog_versions.py --check
+python3 tests/test_review_pr.py
+</pre>
+
+The adoption review records 78 entry validations and ten local Git fixture scenarios. Java compilation, OSGi activation, PackIn, PostgreSQL/Oracle and UI compatibility remain separate checks. Core migrations/AD IDs are generated by the developer through UI/Centralized IDs; private plugins follow their own policy.
+
+== Documentation and source code ==
+
+* [https://github.com/Carl0gonzalez/AI-Skills-Idempiere Source repository]
+New local catalog additions require a separate commit/push before their files appear on the public repository. The wiki destination, category and any site-specific language navigation are chosen when publishing.
