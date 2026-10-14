@@ -2,9 +2,9 @@
   "schema_version": 1,
   "revision_scheme": "SHA-256 over relative file names and file digests",
   "status": "content inventory; not a published release or runtime compatibility certification",
-  "catalog_revision": "sha256:e004e71039611499b98f64ebd40533116d6b5b9b6a4290e56d8cf83515d3dbd8",
+  "catalog_revision": "sha256:edc7b07a77d5e3954dca89dab52f1b3dc4730ce303b6127e146acf336e7d8dd5",
   "distinct_names": 33,
-  "entry_count": 78,
+  "entry_count": 93,
   "skills": [
     {
       "name": "idempiere-contribution-workflow",
@@ -420,6 +420,126 @@
       "scope": "idempiere-13",
       "target_idempiere": "13",
       "content_revision": "sha256:d02760a570e13b6bfd6ad754e4a421107b7133805f9ab016ad8abcb9cc43fe85",
+      "resource_count": 1
+    },
+    {
+      "name": "idempiere-local-postgres",
+      "path": "idempiere-14/idempiere-local-postgres",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:6f4b942d630d628e6cb90c63c3b559b94700efd8d62d784aa2b9be87e8858c8b",
+      "resource_count": 1
+    },
+    {
+      "name": "idempiere-migration-review",
+      "path": "idempiere-14/idempiere-migration-review",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:59af5d817dc9139c47de958d0076a5bdfbf9d99eeec8d0143a668732cc91f8a0",
+      "resource_count": 1
+    },
+    {
+      "name": "idempiere-model-designer",
+      "path": "idempiere-14/idempiere-model-designer",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:d643a2d1e0fb93ad30537e63da4a9c59a4d58aa97ad7c25afbc36662a35ac166",
+      "resource_count": 2
+    },
+    {
+      "name": "idempiere-pipo-integrity-review",
+      "path": "idempiere-14/idempiere-pipo-integrity-review",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:690ea7ab73bc6ddffb7dc9701881567f05847c50dd5fabb03b66fd6b07df5c45",
+      "resource_count": 2
+    },
+    {
+      "name": "idempiere-plugin-compiler",
+      "path": "idempiere-14/idempiere-plugin-compiler",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:8649a7362f3f7f6b3a3e525e3dad648735cc8d9428b2b19f46b9126c020d9839",
+      "resource_count": 2
+    },
+    {
+      "name": "idempiere-plugin-component-developer",
+      "path": "idempiere-14/idempiere-plugin-component-developer",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:7a3382c0cb80815b308c0ae5b366a7525f718d289c363eecadf851d91bcaa6ad",
+      "resource_count": 2
+    },
+    {
+      "name": "idempiere-plugin-designer",
+      "path": "idempiere-14/idempiere-plugin-designer",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:c8a712406644b342f07567db482f9efc8482aa0539b12f63a9e7a92af7d8f1c4",
+      "resource_count": 1
+    },
+    {
+      "name": "idempiere-plugin-manual-generator",
+      "path": "idempiere-14/idempiere-plugin-manual-generator",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:bdfb3d87c1df8bb250375a3bb04fa099924be76b96a6a347cc1ffbd4cf611bf3",
+      "resource_count": 1
+    },
+    {
+      "name": "idempiere-plugin-readme",
+      "path": "idempiere-14/idempiere-plugin-readme",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:3a8e35b5fbfe6ad2bd9d6e18796b2d2050c5f004c48888b2310876284df44cab",
+      "resource_count": 2
+    },
+    {
+      "name": "idempiere-plugin-test-developer",
+      "path": "idempiere-14/idempiere-plugin-test-developer",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:923f127f40b6b7113ed77817f3cd6c4df371661c9a7a29b560ca8245e3b95b4a",
+      "resource_count": 1
+    },
+    {
+      "name": "idempiere-plugin-version-upgrader",
+      "path": "idempiere-14/idempiere-plugin-version-upgrader",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:eeca559cc57c4a6ee7bab264dcb0e22cd80d8036407c5e10459f805f45c0efc7",
+      "resource_count": 3
+    },
+    {
+      "name": "idempiere-plugin-wiki-page",
+      "path": "idempiere-14/idempiere-plugin-wiki-page",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:70cecb5aab066bd57be8ca3c530192b00796e236ebd63b81acff5fd93104059a",
+      "resource_count": 2
+    },
+    {
+      "name": "jenkinsfile-developer",
+      "path": "idempiere-14/jenkinsfile-developer",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:661cdcbbfea013ab23c3efa5e1b3d02ecc48cd6018481305c2cdc3271290aa1d",
+      "resource_count": 2
+    },
+    {
+      "name": "skill-architect",
+      "path": "idempiere-14/skill-architect",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:ea1e5d92f35e6dd6f4fb9d6567b68c42e2d2bba4093788a3432d40c67b541d9d",
+      "resource_count": 1
+    },
+    {
+      "name": "skill-reviewer",
+      "path": "idempiere-14/skill-reviewer",
+      "scope": "idempiere-14",
+      "target_idempiere": "14",
+      "content_revision": "sha256:54cd7de3aac2c8ee39e114ff327f4882d43e7f3302b0433818eea917f699fd57",
       "resource_count": 1
     },
     {

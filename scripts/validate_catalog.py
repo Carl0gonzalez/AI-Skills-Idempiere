@@ -41,7 +41,7 @@ for path in ROOT.rglob('*.md'):
         target = target.split(' "', 1)[0]
         if not (path.parent / target).exists():
             errors.append(f'{path.relative_to(ROOT)}: missing local link {target}')
-versions = [by_group.get(f'idempiere-{v}', set()) for v in (8, 10, 12, 13)]
+versions = [by_group.get(f'idempiere-{v}', set()) for v in (8, 10, 12, 13, 14)]
 if any(names != versions[0] for names in versions[1:]):
     errors.append('Version directories contain different skill inventories')
 for group in ('shared', 'core'):
