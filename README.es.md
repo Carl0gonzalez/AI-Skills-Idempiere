@@ -1,381 +1,99 @@
-# iDempiere Skills Repository
+# Repositorio de skills iDempiere
 
 **Español** | [English](README.md)
 
-> Biblioteca versionada de skills reutilizables para diseñar, desarrollar, validar y operar soluciones iDempiere.
+Skills reutilizables para desarrollo de plugins iDempiere, modelado, pruebas, documentación, entornos y contribuciones al core.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![iDempiere 8](https://img.shields.io/badge/iDempiere-8-4B7BEC)](idempiere-8/)
-[![iDempiere 10](https://img.shields.io/badge/iDempiere-10-20BF6B)](idempiere-10/)
-[![iDempiere 12](https://img.shields.io/badge/iDempiere-12-8854D0)](idempiere-12/)
-[![iDempiere 13](https://img.shields.io/badge/iDempiere-13-E67E22)](idempiere-13/)
-[![iDempiere 14](https://img.shields.io/badge/iDempiere-14-546DE5)](idempiere-14/)
+## Organización
 
-Este repositorio centraliza instrucciones reutilizables para asistentes de desarrollo con IA. Mantiene criterios consistentes y los separa por versión mayor de iDempiere, reduciendo el riesgo de aplicar supuestos, configuraciones de compilación o instrucciones de plataforma a una base de código incompatible.
+| Carpeta | Entradas | Alcance |
+|---|---:|---|
+| [idempiere-8](idempiere-8/README.es.md) | 15 | iDempiere 8 |
+| [idempiere-10](idempiere-10/README.es.md) | 15 | iDempiere 10 |
+| [idempiere-12](idempiere-12/README.es.md) | 15 | iDempiere 12 |
+| [idempiere-13](idempiere-13/README.es.md) | 15 | iDempiere 13 |
+| [idempiere-14](idempiere-14/README.es.md) | 15 | iDempiere 14 en desarrollo |
+| [shared](shared/README.es.md) | 11 | Workflows comunes |
+| [core](core/README.es.md) | 7 | Contribuciones al core |
 
-El catálogo cubre plugins OSGi, upgrades de versión, Application Dictionary, PIPO/2Pack, PostgreSQL, Jenkins, pruebas y documentación funcional.
+**93 entradas y 33 nombres distintos.** Cada conjunto versionado contiene los mismos 15 nombres de workflow.
 
-## Vista general
-
-| | |
-|---|---|
-| **Conjuntos por versión** | iDempiere 8, 10, 12, 13 y 14; las APIs comunes requieren verificación en la release objetivo |
-| **Catálogo** | 15 skills por versión + 11 comunes + 7 de contribución core (33 nombres distintos) |
-| **Formato principal** | Directorios autónomos con `SKILL.md` |
-| **Instalación** | Seleccionar un conjunto objetivo y skills shared/core pertinentes; revisar conflictos de nombres primero |
-| **Repositorio complementario opcional** | [`idempiere-dev-environments`](https://github.com/Carl0gonzalez/idempiere-dev-environments) para entornos de desarrollo aislados |
-| **Base de seguridad** | Aislamiento por versión, instrucciones portables, validación y acceso de solo lectura a la base de datos por defecto |
-
----
-
-## Contenido
-
-- [Vista general](#vista-general)
-- [Estructura del repositorio](#estructura-del-repositorio)
-- [Reglas de organización](#reglas-de-organización)
-- [Skills disponibles](#skills-disponibles)
-- [Meta-skills: crear y revisar skills](#meta-skills-crear-y-revisar-skills)
-- [Flujo de upgrade de plugins](#flujo-de-upgrade-de-plugins)
-- [Skills comunes y contribuciones al core](#skills-comunes-y-contribuciones-al-core)
-- [Revisiones de skills y wiki bilingüe](#revisiones-de-skills-y-wiki-bilingüe)
-- [Matriz de versiones](#matriz-de-versiones)
-- [Instalación desde un clon local](#instalación-desde-un-clon-local)
-- [Uso en entornos aislados con direnv](#uso-en-entornos-aislados-con-direnv)
-- [Política de seguridad para PostgreSQL](#política-de-seguridad-para-postgresql)
-- [Contribuciones y mantenimiento](#contribuciones-y-mantenimiento)
-- [Licencia](#licencia)
-
----
-
-## Estructura del repositorio
-
-```text
-.
-├── idempiere-8/                 # Skills para repositorios iDempiere 8
-├── idempiere-10/                # Skills para repositorios iDempiere 10
-├── idempiere-12/                # Skills para repositorios iDempiere 12
-├── idempiere-13/                # Skills para repositorios iDempiere 13
-├── idempiere-14/                # Skills orientadas a iDempiere 14 en desarrollo
-├── shared/                      # Skills comunes; verificar APIs objetivo
-├── core/                        # Adaptaciones para contribución al core
-├── docs/                        # Revisión de adopción y procedencia
-├── scripts/                     # Validación de catálogo sin cambios
-├── tests/                       # Pruebas locales de helpers
-├── LICENSE                      # Licencia MIT
-├── README.es.md                 # Documentación en español
-└── README.md                    # Catálogo y guía de uso en inglés
-```
-
-Cada carpeta de versión mantiene sus 15 skills autónomas. shared/ centraliza workflows comunes con comprobación explícita de APIs; core/ reúne guías de contribución ligadas a la política upstream. La ubicación de una skill no demuestra compilación ni compatibilidad en ejecución.
-
-| Directorio | Alcance | Uso recomendado |
-|---|---|---|
-| [`idempiere-8`](idempiere-8/README.md) | iDempiere 8 | Proyectos, plugins y target platforms basados en v8. |
-| [`idempiere-10`](idempiere-10/README.md) | iDempiere 10 | Proyectos, plugins y target platforms basados en v10. |
-| [`idempiere-12`](idempiere-12/README.md) | iDempiere 12 | Proyectos, plugins y target platforms basados en v12. |
-| [`idempiere-13`](idempiere-13/README.md) | iDempiere 13 | Proyectos, plugins y target platforms basados en v13. |
-| [`idempiere-14`](idempiere-14/README.es.md) | iDempiere 14 | Proyectos, plugins y target platforms orientados a v14 en desarrollo; verificar el commit real. |
-
----
-
-## Reglas de organización
-
-Para mantener un catálogo claro, reutilizable y seguro, toda contribución debe respetar estas reglas:
-
-| Regla | Criterio |
-|---|---|
-| **Carpetas dedicadas** | Cada skill debe vivir en su propia carpeta y contener `SKILL.md`. |
-| **Metadatos claros** | El frontmatter debe incluir `name` y `description`, indicando capacidad y criterios de activación. |
-| **Alcance focalizado** | Una skill debe resolver una capacidad reutilizable, no agrupar tareas inconexas. |
-| **Separación por versión** | Toda skill específica de plataforma debe estar disponible bajo la versión de iDempiere que corresponda. |
-| **Portabilidad** | No incluir rutas personales, nombres de usuario, credenciales, hosts, puertos ni supuestos de una máquina local. |
-| **Validación** | Validar toda skill modificada antes de incorporarla al respaldo. |
-| **No duplicación** | Preferir actualizar una skill existente antes de crear otra con el mismo propósito. |
-
-### Estructura mínima de una skill
-
-```text
-nombre-de-la-skill/
-└── SKILL.md
-```
-
-Una skill puede incluir `scripts/`, `references/` o `assets/` únicamente cuando esos recursos sean necesarios para un flujo repetible o determinista.
-
----
-
-## Skills disponibles
-
-Las siguientes skills están disponibles en cada directorio de versión, salvo que una futura variante requiera una especialización adicional. Los enlaces apuntan a las copias de iDempiere 12 como ejemplos representativos.
-
-| Skill | Descripción | Propósito principal |
-|---|---|---|
-| [`idempiere-local-postgres`](idempiere-12/idempiere-local-postgres/SKILL.md) | Diagnóstico seguro de PostgreSQL para iDempiere. | Inspecciona datos, esquema y configuración con sesiones de solo lectura por defecto. |
-| [`idempiere-migration-review`](idempiere-12/idempiere-migration-review/SKILL.md) | Auditoría de propuestas de migración y módulos. | Revisa modelos, DDL, Application Dictionary y consistencia OSGi. |
-| [`idempiere-model-designer`](idempiere-12/idempiere-model-designer/SKILL.md) | Diseño de modelos de datos y arquitectura funcional. | Define entidades, relaciones, documentos y reglas ERP. |
-| [`idempiere-pipo-integrity-review`](idempiere-12/idempiere-pipo-integrity-review/SKILL.md) | Preflight de PackOut/PIPO. | Verifica dependencias y compatibilidad entre diccionario y base de datos. |
-| [`idempiere-plugin-compiler`](idempiere-12/idempiere-plugin-compiler/SKILL.md) | Compilación de plugins OSGi. | Descubre el builder del repositorio y reporta artefactos generados. |
-| [`idempiere-plugin-version-upgrader`](idempiere-12/idempiere-plugin-version-upgrader/SKILL.md) | Upgrade de plugins OSGi entre versiones de iDempiere. | Usa una rama de versión derivada de `master`, alinea Java/PostgreSQL/build, compila localmente y condiciona el PR a una revisión. |
-| [`idempiere-plugin-component-developer`](idempiere-12/idempiere-plugin-component-developer/SKILL.md) | Desarrollo de componentes internos. | Implementa procesos, callouts, validadores y factories. |
-| [`idempiere-plugin-designer`](idempiere-12/idempiere-plugin-designer/SKILL.md) | Diseño técnico de plugins. | Convierte diseños funcionales en especificaciones Java y OSGi. |
-| [`idempiere-plugin-manual-generator`](idempiere-12/idempiere-plugin-manual-generator/SKILL.md) | Generación de manuales funcionales. | Produce documentación de uso y guías de prueba desde código y metadatos. |
-| [`idempiere-plugin-readme`](idempiere-12/idempiere-plugin-readme/SKILL.md) | Documentación de repositorios de plugins. | Crea y actualiza README en inglés basados en el contenido real del proyecto. |
-| [`idempiere-plugin-wiki-page`](idempiere-12/idempiere-plugin-wiki-page/SKILL.md) | Documentación de plugins en la wiki de iDempiere. | Normaliza páginas de Available Plugins desde el README, contrastado con código y metadatos. |
-| [`idempiere-plugin-test-developer`](idempiere-12/idempiere-plugin-test-developer/SKILL.md) | Desarrollo de pruebas para plugins. | Define pruebas unitarias, mocks y estrategias de aislamiento. |
-| [`jenkinsfile-developer`](idempiere-12/jenkinsfile-developer/SKILL.md) | Mantenimiento de pipelines Jenkins. | Estandariza compilación y publicación de documentación por versión. |
-| [`skill-architect`](idempiere-12/skill-architect/SKILL.md) | Diseño de nuevas skills. | Crea capacidades enfocadas cuando no existe una skill adecuada. |
-| [`skill-reviewer`](idempiere-12/skill-reviewer/SKILL.md) | Revisión de skills antes de adoptarlas. | Evalúa nombre, activación, alcance, estructura y riesgo de duplicación. |
-
----
-
-## Meta-skills: crear y revisar skills
-
-`skill-architect` y `skill-reviewer` no dependen de iDempiere. Son meta-skills para mantener la calidad del propio catálogo: están disponibles en las cuatro versiones para que cada entorno pueda crear o evaluar capacidades nuevas sin mezclar dependencias de plataforma.
-
-| Skill | Función | Cuándo usarla | Resultado esperado |
-|---|---|---|---|
-| [`skill-architect`](idempiere-12/skill-architect/SKILL.md) | Diseña y estructura una skill nueva y reutilizable. | Cuando hay un flujo repetible que no está cubierto por una skill existente. | Nombre, descripción, ubicación, estructura y contenido de una skill acotada. |
-| [`skill-reviewer`](idempiere-12/skill-reviewer/SKILL.md) | Audita una skill antes de incorporarla o modificarla. | Antes de hacer commit, instalar una skill o cuando hay dudas sobre alcance o duplicación. | Veredicto, hallazgos, correcciones propuestas y recomendación final. |
-
-### Cómo trabajan juntas
-
-```text
-Necesidad repetible
-        │
-        ▼
-skill-architect ──► ¿Existe una skill equivalente?
-        │                    │
-        │ no                 └── sí: actualizar o reutilizar la existente
-        ▼
-Diseño y creación de una skill enfocada
-        │
-        ▼
-skill-reviewer ───► Revisión de nombre, activación, alcance y estructura
-        │
-        ▼
-Corrección necesaria o aprobación para adopción
-```
-
-`skill-architect` no debe generar una skill para una actividad puntual, ambigua o ya cubierta. Antes de crearla, busca solapamientos, propone un nombre en minúsculas con guiones, redacta una descripción que indique cuándo se activa y limita los archivos auxiliares a los realmente necesarios.
-
-`skill-reviewer` no crea cambios por defecto: primero evalúa si la skill es específica, reutilizable y detectable por un agente. Su salida clasifica el resultado como aprobación, aprobación con ajustes menores, revisión necesaria o rechazo por duplicación/amplitud excesiva. Solo reescribe la skill cuando se le solicita expresamente.
-
-### Ejemplo de uso: crear una skill
-
-Usa este prompt cuando quieras convertir un procedimiento repetido en una skill:
-
-```text
-Quiero crear una skill reutilizable para revisar scripts SQL de migración antes de ejecutarlos.
-
-Debe detectar operaciones destructivas, validar convenciones de nombres y exigir que se indique una estrategia de reversión. Revisa primero las skills disponibles para evitar duplicados. Si procede crearla, propón su nombre, descripción, estructura mínima y el contenido completo de SKILL.md. No agregues scripts ni carpetas auxiliares salvo que sean necesarios.
-```
-
-El resultado esperado es una propuesta como `sql-migration-safety-review`, con criterios claros de activación, límites de seguridad, flujo de revisión y contrato de salida.
-
-### Ejemplo de uso: revisar una skill antes de adoptarla
-
-Usa este prompt para validar una skill existente:
-
-```text
-Revisa la skill ubicada en <ruta-de-la-skill> antes de incorporarla al catálogo.
-
-Evalúa el nombre, el frontmatter, los criterios de activación, el alcance, el riesgo de duplicación, las instrucciones y la estructura de archivos. Devuelve un veredicto, hallazgos concretos, correcciones sugeridas, frontmatter revisado si aplica y una recomendación final. No modifiques archivos todavía.
-```
-
-> Flujo recomendado: crea o actualiza la skill con `skill-architect`, revísala con `skill-reviewer`, aplica las correcciones aprobadas y valida el resultado antes de hacer commit.
-
----
-
-## Skills comunes y contribuciones al core
-
-Seleccionar un conjunto de versión y las skills comunes pertinentes. Usar core/ sólo para contribuciones al core; prevalecen el AGENTS.md y las skills del checkout real. No instalar simultáneamente copias de distintas versiones con el mismo nombre ni sobrescribir skills instaladas automáticamente. Esta actualización no instala nada.
-
-shared/ contiene workflows portables, sin afirmar que todas las anotaciones, servicios mapped y APIs ZK existen en todas las releases. Si falta una API, conservar el mecanismo existente compatible o informar la limitación.
+## Skills de plugins
 
 | Skill | Propósito |
 |---|---|
-| [`idempiere-architecture-patterns`](shared/idempiere-architecture-patterns/SKILL.md) | Arquitectura y selección de contexto core/plugin/entorno. |
-| [`idempiere-plugin-quality-gate`](shared/idempiere-plugin-quality-gate/SKILL.md) | Ejecución y evidencia de pruebas y calidad de plugins. |
-| [`crear-entornos-idempiere-envrc`](shared/crear-entornos-idempiere-envrc/SKILL.md) | Crear y revisar entornos direnv aislados. |
-| [`documentar-entornos-idempiere-envrc`](shared/documentar-entornos-idempiere-envrc/SKILL.md) | Documentar el comportamiento real del entorno. |
-| [`gestionar-tareas`](shared/gestionar-tareas/SKILL.md) | Gestionar un registro de tareas existente por solicitud explícita. |
-| [`idempiere-event-annotation`](shared/idempiere-event-annotation/SKILL.md) | Delegates de modelos/documentos/login/facts con anotaciones. |
-| [`idempiere-rest-resource`](shared/idempiere-rest-resource/SKILL.md) | Contratos REST y registro de ResourceExtension. |
-| [`idempiere-window-validator`](shared/idempiere-window-validator/SKILL.md) | Intercepción de ventanas y resolución de callbacks. |
-| [`idempiere-zul-form`](shared/idempiere-zul-form/SKILL.md) | Formularios ZUL, controllers, wiring y recursos. |
-| [`idempiere-grouped-listbox`](shared/idempiere-grouped-listbox/SKILL.md) | Modelos agrupados, renderers y carga limitada de datos. |
-| [`idempiere-wlistbox-custom-editor`](shared/idempiere-wlistbox-custom-editor/SKILL.md) | Editor providers y presentación de columnas. |
+| [idempiere-local-postgres](idempiere-14/idempiere-local-postgres/SKILL.md) | Diagnóstico PostgreSQL de solo lectura y controles explícitos de escritura. |
+| [idempiere-migration-review](idempiere-14/idempiere-migration-review/SKILL.md) | Auditar coherencia entre modelos, esquema, AD y Java/OSGi. |
+| [idempiere-model-designer](idempiere-14/idempiere-model-designer/SKILL.md) | Especificar entidades, referencias, ciclo de vida y requisitos del diccionario. |
+| [idempiere-pipo-integrity-review](idempiere-14/idempiere-pipo-integrity-review/SKILL.md) | Revisar tipos físicos/diccionario y dependencias de PackOut. |
+| [idempiere-plugin-compiler](idempiere-14/idempiere-plugin-compiler/SKILL.md) | Descubrir el builder real de target platform e informar artefactos. |
+| [idempiere-plugin-version-upgrader](idempiere-14/idempiere-plugin-version-upgrader/SKILL.md) | Planificar y verificar upgrades de plugins en ramas de versión aisladas. |
+| [idempiere-plugin-component-developer](idempiere-14/idempiere-plugin-component-developer/SKILL.md) | Implementar procesos, callouts, eventos y factories con registro compatible. |
+| [idempiere-plugin-designer](idempiere-14/idempiere-plugin-designer/SKILL.md) | Traducir requisitos funcionales a diseños Java/OSGi mínimos. |
+| [idempiere-plugin-manual-generator](idempiere-14/idempiere-plugin-manual-generator/SKILL.md) | Derivar manuales funcionales en inglés y guías de pruebas desde código/metadatos reales. |
+| [idempiere-plugin-readme](idempiere-14/idempiere-plugin-readme/SKILL.md) | Redactar README de plugins en inglés con evidencia del repositorio. |
+| [idempiere-plugin-wiki-page](idempiere-14/idempiere-plugin-wiki-page/SKILL.md) | Preparar páginas MediaWiki de plugins iDempiere basadas en evidencia. |
+| [idempiere-plugin-test-developer](idempiere-14/idempiere-plugin-test-developer/SKILL.md) | Escribir pruebas de regresión con el framework existente y fixtures aislados. |
+| [jenkinsfile-developer](idempiere-14/jenkinsfile-developer/SKILL.md) | Mantener builds Jenkins y pipelines de documentación según la release. |
+| [skill-architect](idempiere-14/skill-architect/SKILL.md) | Diseñar skills focalizadas cuando el catálogo no cubre una tarea reutilizable. |
+| [skill-reviewer](idempiere-14/skill-reviewer/SKILL.md) | Revisar activación, alcance, duplicación, estructura y calidad de instrucciones. |
 
-Las siete skills del core y sus límites operativos están en [core/README.md](core/README.md). Consultar [shared/README.md](shared/README.md), [procedencia](docs/SOURCES.md), [inventario de skills propias instaladas](docs/INSTALLED_SKILLS_INVENTORY.md) y [doble revisión de adopción](docs/ADOPTION_REVIEW.es.md).
+Los enlaces anteriores apuntan al conjunto iDempiere 14. Seleccionar la carpeta que corresponde a la versión del proyecto.
 
-La validación requiere Python 3 y PyYAML: `python3 scripts/validate_catalog.py`. Las pruebas del helper de PR se ejecutan con `python3 tests/test_review_pr.py`; usan repositorios Git temporales sin red ni base de datos.
+## Skills comunes
 
-
-## Flujo de upgrade de plugins
-
-`idempiere-plugin-version-upgrader` proporciona un proceso controlado para migrar un plugin existente a otra versión mayor de iDempiere:
-
-1. Inspeccionar sin modificar archivos el repositorio, la versión de origen, la rama oficial objetivo, las notas de migración, Java, PostgreSQL y el sistema de compilación.
-2. Presentar para aprobación los hallazgos de compatibilidad, los archivos previstos, el nombre de la rama, el comando de compilación y el plan de validación PostgreSQL.
-3. Crear desde la base verificada de `master` la rama de versión correspondiente, por ejemplo `12.0.0`, y aplicar allí todo el upgrade.
-4. Alinear Maven/Tycho, OSGi, target platform, Java, JDBC y SQL con la versión objetivo.
-5. Compilar localmente cada plugin, fragmento, feature, dependencia y bundle de pruebas actualizado, usando el JDK y la plataforma objetivo.
-6. Revisar estáticamente todo el SQL/JDBC y ejecutar las rutas afectadas contra una instancia PostgreSQL local o desechable compatible cuando exista comportamiento de base de datos.
-7. Presentar el diff final, la evidencia de compilación y PostgreSQL, los artefactos y las limitaciones pendientes.
-8. Publicar la rama y crear un PR hacia `master` únicamente después de aprobar explícitamente ese resultado revisable.
-
-Una compilación Maven/Tycho exitosa verifica Java y la resolución OSGi de las rutas compiladas. La compatibilidad PostgreSQL requiere pruebas contra la base; si no existe una instancia objetivo adecuada, el resultado debe informarse solamente como revisión estática.
-
-## Revisiones de skills y wiki bilingüe
-
-La versión objetivo de iDempiere y la revisión de contenido de una skill son conceptos distintos. El catálogo contiene cinco conjuntos objetivo (8/10/12/13/14), workflows comunes y workflows exclusivos del core. No se infiere release publicada ni validación runtime del nombre de una carpeta.
-
-- [Versionado y matriz de compatibilidad](docs/VERSIONING.es.md).
-- [Revisiones exactas de las 93 entradas](docs/skill-versions.json).
-- [Wiki en español](docs/wiki/Inicio.md) y [wiki en inglés](docs/wiki/Home.md).
-- [Ediciones MediaWiki y estado de publicación](docs/wiki/README.es.md).
-- Los README de versiones, shared y core tienen selector inglés/español.
-
-Tras un cambio intencional de skill/recursos, revisarlo y ejecutar `python3 scripts/catalog_versions.py --write`. Usar `python3 scripts/catalog_versions.py --check` para comprobar revisiones sin escribir. El inventario describe el repo, no la biblioteca instalada.
-
-## Matriz de versiones
-
-Esta matriz muestra cobertura documental de workflows, no soporte runtime probado. Las APIs y requisitos de build se verifican en el proyecto objetivo.
-
-| Área | iDempiere 8 | iDempiere 10 | iDempiere 12 | iDempiere 13 | iDempiere 14 |
-|---|:---:|:---:|:---:|:---:|:---:|
-| Modelado, migración y PIPO | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Diseño, desarrollo y pruebas de plugins | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Upgrades controlados de plugins | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Documentación y manuales | ✓ | ✓ | ✓ | ✓ | ✓ |
-| PostgreSQL seguro | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Jenkins version-aware | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Builder y rama de target platform | Deben verificarse en el repositorio objetivo | Deben verificarse en el repositorio objetivo | Basados en la configuración del repositorio objetivo | Deben verificarse en el repositorio objetivo | ✓ |
-
-> Ninguna variante debe reutilizar automáticamente una imagen Docker o rama de target platform de otra versión mayor. La skill Jenkins exige descubrir y configurar el builder correspondiente al proyecto.
-
----
-
-## Instalación desde un clon local
-
-También es válido clonar este repositorio y pedir a cualquier asistente de IA que instale las skills desde la carpeta local. Así se conserva una copia versionada, se selecciona explícitamente la variante de iDempiere y el propio agente realiza la instalación según su mecanismo disponible.
-
-1. Clonar este repositorio en una ubicación elegida por el usuario.
-2. Identificar el directorio de la versión requerida: `idempiere-8/`, `idempiere-10/`, `idempiere-12/`, `idempiere-13/` o `idempiere-14/`.
-3. Copiar el siguiente prompt y reemplazar los valores entre `<...>`.
-
-```text
-Necesito instalar un conjunto local de skills para mi agente de IA.
-
-Origen de las skills: <ruta-local-del-clon>/idempiere-<8|10|12|13|14>/
-Versión objetivo de iDempiere: <8|10|12|13|14>
-
-Inspecciona esa carpeta, identifica todas las skills que contengan un archivo SKILL.md y propón instalarlas o enlazarlas en la biblioteca de skills que utiliza este entorno. Antes de modificar archivos, indícame:
-1. Las skills detectadas y la ruta de destino que usarás.
-2. Si existe alguna skill con el mismo nombre y cómo resolverás el conflicto.
-3. Si copiarás o crearás enlaces simbólicos, con las implicaciones de cada alternativa.
-
-No sobrescribas ni elimines ninguna skill existente sin mi confirmación explícita. Mantén la instalación limitada a la versión de iDempiere indicada y confirma al final qué skills quedaron disponibles.
-```
-
-El prompt no presupone un proveedor ni una ruta de instalación concreta; funciona como instrucción para Codex, ChatGPT, Claude, Gemini, Cursor, Windsurf u otro agente con acceso al sistema de archivos local.
-
-| Ventaja | Resultado |
+| Skill | Propósito |
 |---|---|
-| Sin rutas fijas | El usuario decide dónde mantener el clon. |
-| Selección controlada | Solo se instala la versión compatible con el proyecto. |
-| Instalación segura | El agente debe informar conflictos y pedir autorización antes de sobrescribir. |
-| Actualización simple | Basta actualizar el clon y repetir la instalación o los enlaces. |
+| [idempiere-architecture-patterns](shared/idempiere-architecture-patterns/SKILL.md) | Elegir el mecanismo compatible más simple y distinguir core, plugin y entorno. |
+| [idempiere-plugin-quality-gate](shared/idempiere-plugin-quality-gate/SKILL.md) | Coordinar ejecución de pruebas, cobertura y evidencia de calidad. |
+| [crear-entornos-idempiere-envrc](shared/crear-entornos-idempiere-envrc/SKILL.md) | Crear y revisar entornos direnv aislados con comprobaciones estáticas. |
+| [documentar-entornos-idempiere-envrc](shared/documentar-entornos-idempiere-envrc/SKILL.md) | Documentar el contrato operativo del .envrc real. |
+| [gestionar-tareas](shared/gestionar-tareas/SKILL.md) | Mantener un registro de tareas existente cuando se solicita explícitamente. |
+| [idempiere-event-annotation](shared/idempiere-event-annotation/SKILL.md) | Implementar delegates anotados con APIs de la versión objetivo. |
+| [idempiere-rest-resource](shared/idempiere-rest-resource/SKILL.md) | Definir contratos REST, controles de acceso y registro ResourceExtension. |
+| [idempiere-window-validator](shared/idempiere-window-validator/SKILL.md) | Interceptar acciones de ventana resolviendo todos los callbacks. |
+| [idempiere-zul-form](shared/idempiere-zul-form/SKILL.md) | Crear formularios ZUL, controllers, wiring y recursos empaquetados. |
+| [idempiere-grouped-listbox](shared/idempiere-grouped-listbox/SKILL.md) | Implementar modelos agrupados, renderers y acceso limitado a datos. |
+| [idempiere-wlistbox-custom-editor](shared/idempiere-wlistbox-custom-editor/SKILL.md) | Personalizar editores y presentación de columnas WListbox existentes. |
 
-> Verifica siempre que la versión elegida en el prompt coincida con la versión del repositorio iDempiere donde se trabajará.
+## Skills de contribución al core
 
----
-
-## Uso en entornos aislados con direnv
-
-Se recomienda usar `direnv` para cargar exclusivamente las skills de la versión correspondiente al repositorio abierto. Esto reduce el riesgo de compilar, diseñar o diagnosticar con supuestos de otra versión de iDempiere.
-
-Este repositorio de skills fue diseñado originalmente para proyectos que mantienen separados sus entornos de desarrollo de iDempiere. Por esa razón, cada versión mayor compatible dispone de su propio conjunto completo de skills, en lugar de compartir un único catálogo global con supuestos mezclados.
-
-El repositorio complementario [`idempiere-dev-environments`](https://github.com/Carl0gonzalez/idempiere-dev-environments) permite crear y mantener esos entornos aislados. Su uso es opcional: estas skills también pueden instalarse en cualquier configuración compatible, pero ambos repositorios juntos proporcionan una separación clara entre las versiones de iDempiere y las instrucciones asociadas al agente.
-
-### Ejemplo de `.envrc`
-
-Crear un `.envrc` dentro del repositorio de trabajo:
-
-```sh
-# Seleccionar únicamente la versión que usa este repositorio.
-export IDEMPIERE_VERSION=12
-
-# Mantener el estado de Codex aislado por proyecto.
-export CODEX_HOME="$PWD/.codex"
-
-# Definir esta variable fuera del repositorio o mediante la configuración de direnv.
-export SKILLS_BACKUP_ROOT="${SKILLS_BACKUP_ROOT:?Configure SKILLS_BACKUP_ROOT antes de permitir este .envrc}"
-
-mkdir -p "$CODEX_HOME/skills"
-
-for skill_dir in "$SKILLS_BACKUP_ROOT/idempiere-$IDEMPIERE_VERSION"/*; do
-  [ -f "$skill_dir/SKILL.md" ] || continue
-  skill_destination="$CODEX_HOME/skills/$(basename "$skill_dir")"
-  if [ -e "$skill_destination" ] || [ -L "$skill_destination" ]; then
-    printf 'Existing skill preserved: %s\n' "$skill_destination"
-    continue
-  fi
-  ln -s "$skill_dir" "$skill_destination"
-done
-```
-
-Luego ejecutar:
-
-```sh
-direnv allow
-```
-
-### Beneficios del aislamiento
-
-| Beneficio | Resultado |
+| Skill | Propósito |
 |---|---|
-| Selección explícita de versión | Cada proyecto carga skills acordes a su plataforma. |
-| Menor contaminación de contexto | Evita instrucciones, builders o patrones de otra versión. |
-| Configuración portable | La ubicación del respaldo se entrega mediante una variable de entorno. |
-| Reproducibilidad | El equipo puede compartir un `.envrc.example` sin publicar rutas personales ni credenciales. |
+| [idempiere-contribution-workflow](core/idempiere-contribution-workflow/SKILL.md) | Preparar ramas vinculadas a Jira, commits focalizados, documentación y PR. |
+| [idempiere-core-coding-standards](core/idempiere-core-coding-standards/SKILL.md) | Preservar transacciones, acceso por rol, compatibilidad API y comportamiento en ambos motores. |
+| [idempiere-database-changes](core/idempiere-database-changes/SKILL.md) | Especificar cambios de UI y revisar migraciones generadas por el desarrollador con Centralized IDs. |
+| [idempiere-unit-tests](core/idempiere-unit-tests/SKILL.md) | Escribir/ejecutar regresiones del core con fixtures GardenWorld verificados. |
+| [idempiere-headless-build-run](core/idempiere-headless-build-run/SKILL.md) | Compilar core y realizar SyncDB/servidor autorizados con evidencia precisa. |
+| [idempiere-pr-review](core/idempiere-pr-review/SKILL.md) | Revisar por etapas y probar integración en un worktree aislado. |
+| [idempiere-jira-tickets](core/idempiere-jira-tickets/SKILL.md) | Redactar bugs/features reproducibles y reportes privados de seguridad. |
 
----
+## Uso
 
-## Política de seguridad para PostgreSQL
+1. Seleccionar la carpeta versionada que corresponde al proyecto iDempiere.
+2. Añadir los workflows comunes pertinentes para arquitectura, calidad, REST, ZK o entornos.
+3. Usar workflows core sólo para contribuciones al core. Prevalecen AGENTS.md e instrucciones locales del checkout objetivo.
+4. Leer SKILL.md y sus recursos antes de realizar la tarea.
 
-La skill `idempiere-local-postgres` aplica una política conservadora de acceso a datos:
+Para Codex, copiar cada carpeta de skill seleccionada a `.agents/skills/` del proyecto. Las skills comunes/core pueden ubicarse en la biblioteca global del usuario. Copiar la carpeta completa, incluidos scripts, referencias y assets. No cargar varias copias del mismo nombre de distintas versiones ni sobrescribir personalizaciones sin revisarlas.
 
-| Control | Comportamiento |
-|---|---|
-| Modo predeterminado | Todas las conexiones se abren en solo lectura. |
-| Consultas permitidas | `SELECT`, `SHOW` y `EXPLAIN`. |
-| Operaciones consideradas escritura | `INSERT`, `UPDATE`, `DELETE`, `MERGE`, DDL y funciones con efectos secundarios. |
-| Primera verificación | Se informa base, objetivo, SQL propuesto y posible impacto. |
-| Segunda verificación | Se solicita confirmación final sobre la operación exacta antes de escribir. |
-| Cambio de alcance | Cualquier modificación a SQL, filtros, destino o impacto reinicia las dos verificaciones. |
+## Versiones objetivo
 
-Esta política permite diagnosticar con seguridad y reduce el riesgo de cambios accidentales en bases de datos iDempiere.
+Las carpetas identifican la línea iDempiere prevista. La fuente, JDK, APIs, target platform y builder reales determinan la compatibilidad. iDempiere 14 se orienta a fuentes de desarrollo; revisar el commit seleccionado antes de compilar.
 
----
+Las revisiones de las skills se mantienen mediante el historial Git. Consultar [selección de versiones](docs/VERSIONING.es.md). El repositorio complementario [idempiere-dev-environments](https://github.com/Carl0gonzalez/idempiere-dev-environments) documenta entornos de desarrollo aislados.
 
-## Contribuciones y mantenimiento
+## Documentación
 
-Antes de agregar o actualizar una skill:
+- [Wiki en español](https://github.com/Carl0gonzalez/AI-Skills-Idempiere/wiki/Inicio).
+- [Wiki en inglés](https://github.com/Carl0gonzalez/AI-Skills-Idempiere/wiki/Home).
+- [Fuentes de la wiki](docs/wiki/README.es.md).
+- [Procedencia](docs/SOURCES.md).
 
-1. Confirmar que no existe una skill equivalente que deba actualizarse.
-2. Definir la versión o versiones de iDempiere a las que aplica.
-3. Mantener las instrucciones breves, operativas y libres de información local.
-4. Validar el frontmatter y la estructura de la skill.
-5. Verificar que no se hayan agregado rutas personales, credenciales o configuraciones específicas de un equipo.
-6. Actualizar este catálogo si se incorpora una nueva capacidad.
+## Mantenimiento
 
-Para cambios complejos, revisar la skill con `skill-reviewer` antes de adoptarla.
-
----
+Mantener nombres y criterios de activación específicos. Reutilizar workflows antes de crear otra skill. Conservar los recursos necesarios dentro de su carpeta. Revisar copias afectadas cuando cambia un comportamiento común y actualizar ambos idiomas del catálogo.
 
 ## Licencia
 
-Este repositorio se distribuye bajo la [Licencia MIT](LICENSE).
-
-Copyright © 2026 Carlo González.
+[MIT](LICENSE). Copyright © 2026 Carlo González.

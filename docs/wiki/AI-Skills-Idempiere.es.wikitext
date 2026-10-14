@@ -1,17 +1,14 @@
 [[AI Skills for iDempiere|English]]
 
-* '''Responsable:''' Carlo González
-* '''Licencia:''' [https://github.com/Carl0gonzalez/AI-Skills-Idempiere/blob/main/LICENSE MIT]
+* Workflows reutilizables para plugins, entornos y contribuciones core de iDempiere.
 * '''Fuentes:''' [https://github.com/Carl0gonzalez/AI-Skills-Idempiere AI-Skills-Idempiere]
-* '''Estado:''' Conjuntos orientados a iDempiere 8, 10, 12, 13 y 14; las APIs requieren verificación objetivo. Borrador local; sin release declarada.
+* '''Licencia:''' [https://github.com/Carl0gonzalez/AI-Skills-Idempiere/blob/main/LICENSE MIT]
 
-== Descripción ==
+== Organización ==
 
-Biblioteca versionada de instrucciones para agentes IA que trabajan con plugins, entornos y contribuciones core de iDempiere. No es un plugin OSGi. El catálogo local contiene 93 entradas y 33 nombres distintos.
+Conjuntos objetivo: iDempiere 8, 10, 12, 13 y 14, con 15 skills cada uno. Workflows comunes: 11. Workflows core: 7. Total: 93 entradas y 33 nombres distintos. iDempiere 14 se orienta a fuentes de desarrollo.
 
-== Workflows por versión ==
-
-Los mismos 15 nombres existen en cada línea objetivo: 8, 10, 12, 13 y 14. Seleccionar la release real y no cargar copias competidoras del mismo nombre.
+== Skills de plugins ==
 
 {| class="wikitable"
 ! Skill !! Propósito
@@ -47,7 +44,7 @@ Los mismos 15 nombres existen en cada línea objetivo: 8, 10, 12, 13 y 14. Selec
 | <code>skill-reviewer</code> || Revisar activación, alcance, duplicación, estructura y calidad de instrucciones.
 |}
 
-== Workflows comunes ==
+== Skills comunes ==
 
 {| class="wikitable"
 ! Skill !! Propósito
@@ -75,7 +72,7 @@ Los mismos 15 nombres existen en cada línea objetivo: 8, 10, 12, 13 y 14. Selec
 | <code>idempiere-wlistbox-custom-editor</code> || Personalizar editores y presentación de columnas WListbox existentes.
 |}
 
-== Contribuciones al core ==
+== Skills de contribución al core ==
 
 {| class="wikitable"
 ! Skill !! Propósito
@@ -95,33 +92,16 @@ Los mismos 15 nombres existen en cada línea objetivo: 8, 10, 12, 13 y 14. Selec
 | <code>idempiere-jira-tickets</code> || Redactar bugs/features reproducibles y reportes privados de seguridad.
 |}
 
-== iDempiere 14 ==
+== Uso ==
 
-El conjunto idempiere-14 añade 15 workflows para el desarrollo 14.0.0-SNAPSHOT verificado. Los valores JDK/build e imágenes se comprueban en la fuente objetivo; no se infiere imagen release-14 ni certificación runtime.
+# Seleccionar el conjunto versionado correspondiente al proyecto real.
+# Añadir workflows comunes pertinentes y usar los del core sólo para contribuciones al core.
+# Copiar las carpetas completas, incluidos scripts, referencias y assets, a la biblioteca del proyecto.
+# Leer SKILL.md y recursos referenciados antes de utilizarla.
 
-== Requisitos y uso ==
+Para Codex, las skills locales usan .agents/skills/. Los workflows shared/core pueden usar la biblioteca global. Cargar sólo una copia por nombre. Las instrucciones y APIs del checkout real determinan compatibilidad. Git mantiene las revisiones de las skills.
 
-# Leer release, build, scaffold e instrucciones del proyecto real.
-# Seleccionar un conjunto de versión y los workflows comunes pertinentes.
-# Para core, leer AGENTS.md y skills locales antes de las adaptaciones centrales.
-# Verificar APIs; preservar factories, transacciones, acceso por rol/cliente/org y modelos generados.
-# Revisar conflictos de instalación por separado; esta página no instala ni publica.
+== Documentación ==
 
-El agente necesita acceso a Markdown/recursos. Python 3 y PyYAML validan el catálogo. El helper local requiere Git 2.31+, Bash 3.2+ e identidad Git local.
-
-== Versiones y validación ==
-
-La línea iDempiere no es un número de release de skill. Las revisiones SHA-256 identifican instrucciones y recursos en docs/skill-versions.json. Publicar una release requiere tag deliberado. No se infiere una versión probada de la carpeta objetivo.
-
-<pre>
-python3 scripts/validate_catalog.py
-python3 scripts/catalog_versions.py --check
-python3 tests/test_review_pr.py
-</pre>
-
-La revisión registra 78 entradas validadas y diez escenarios Git locales. Compilación Java, OSGi, PackIn, PostgreSQL/Oracle y UI son controles separados. El desarrollador genera migraciones/IDs core desde UI con Centralized IDs; los plugins privados siguen sus propias reglas.
-
-== Documentación y código fuente ==
-
-* [https://github.com/Carl0gonzalez/AI-Skills-Idempiere Repositorio fuente]
-Las incorporaciones locales necesitan commit/push separados para aparecer en el repo público. El destino wiki, categoría y navegación entre idiomas del sitio se eligen al publicar.
+* [https://github.com/Carl0gonzalez/AI-Skills-Idempiere/wiki/Home English wiki]
+* [https://github.com/Carl0gonzalez/AI-Skills-Idempiere/wiki/Inicio Wiki en español]

@@ -1,8 +1,8 @@
-# Guías de contribución al core
+# Skills de contribución al core
 
 **Español** | [English](README.md)
 
-Los **siete workflows core** son adaptaciones locales del commit upstream 75ad26081a1745ab64831567861ad8f9f6f78d36. Leer primero AGENTS.md, skills y documentación oficial del checkout real. No imponen las políticas Jira/IDs/migración del core a esta biblioteca ni a plugins privados.
+Siete workflows para contribuciones al core de iDempiere. Leer primero AGENTS.md, skills locales y documentación oficial del checkout objetivo. Las políticas core no se aplican automáticamente a plugins privados.
 
 | Skill | Propósito |
 |---|---|
@@ -14,22 +14,9 @@ Los **siete workflows core** son adaptaciones locales del commit upstream 75ad26
 | [idempiere-pr-review](idempiere-pr-review/SKILL.md) | Revisar por etapas y probar integración en un worktree aislado. |
 | [idempiere-jira-tickets](idempiere-jira-tickets/SKILL.md) | Redactar bugs/features reproducibles y reportes privados de seguridad. |
 
-## Límites de ejecución
+## Helper de revisión de PR
 
-El desarrollador genera migraciones core, IDs/UUIDs del AD y modelos regenerados según reglas upstream. El agente los especifica y revisa. Commits, push, publicación de PR/tickets, SyncDB y ejecución del servidor son acciones separadas, sujetas a la autorización del usuario.
+La skill de PR incluye un helper de worktrees aislados. Preserva el checkout original y rechaza limpieza cuando hay trabajo adicional en el worktree. Requisitos: Git 2.31+, Bash 3.2+ e identidad Git local configurada; Windows usa Git Bash. Leer la skill antes de ejecutar el helper. Consultar [política core](CORE_POLICY.md).
 
-## Helper local de PR
 
-El helper utiliza un worktree aislado y detached, comprueba el remoto oficial efectivo y preserva el checkout original. Rechaza limpieza con trabajo tracked/untracked/ignored o cambios de HEAD y no tiene borrado forzado. No revierte migraciones ni detiene servidores.
-
-Requisitos: Git 2.31+ (worktrees/--path-format), Bash 3.2+ e identidad local para el merge de revisión no publicado. Windows usa Git Bash. Las pruebas usan fixtures locales temporales; no se afirma haber probado un PR real de GitHub.
-
-```bash
-python3 tests/test_review_pr.py
-```
-
-Leer [política](CORE_POLICY.md) y la skill de revisión antes de preparar un worktree.
-
-## Revisiones y referencias
-
-Consultar [versionado](../docs/VERSIONING.es.md), [fuentes](../docs/SOURCES.md), [revisión de adopción](../docs/ADOPTION_REVIEW.es.md) y [wiki](../docs/wiki/Inicio.md). Estas instrucciones no instalan skills ni publican páginas en una wiki remota.
+Consultar [catálogo del repo](../README.es.md) y [selección de versiones](../docs/VERSIONING.es.md).

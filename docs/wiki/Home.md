@@ -2,50 +2,45 @@
 
 **English** | [Español](Inicio.md)
 
-This library gives AI agents reusable instructions for iDempiere development. It brings plugin workflows, architecture, environment guidance and core-contribution rules into one repository, while keeping their scopes distinct. It is a skill catalog, not an OSGi plugin installed in the ERP.
+Reusable skills for iDempiere plugin development, data modeling, testing, documentation, environments and core contributions.
 
-- **Owner:** Carlo González, as recorded in the repository license.
-- **License:** [MIT](../../LICENSE).
-- **Source:** [AI-Skills-Idempiere](https://github.com/Carl0gonzalez/AI-Skills-Idempiere).
-- **Status:** local documentation and content inventory; no release number or runtime certification is assigned here.
+## Organization
 
-## How the catalog is organized
-
-| Directory | Skills | Use |
+| Directory | Entries | Scope |
 |---|---:|---|
-| idempiere-8, idempiere-10, idempiere-12, idempiere-13, idempiere-14 | 15 in each | Select the actual project's target line |
-| shared | 11 | Architecture, quality, environments and specialized components |
-| core | 7 | Contribute to iDempiere core under the actual checkout's rules |
+| [idempiere-8](../../idempiere-8/README.md) | 15 | iDempiere 8 |
+| [idempiere-10](../../idempiere-10/README.md) | 15 | iDempiere 10 |
+| [idempiere-12](../../idempiere-12/README.md) | 15 | iDempiere 12 |
+| [idempiere-13](../../idempiere-13/README.md) | 15 | iDempiere 13 |
+| [idempiere-14](../../idempiere-14/README.md) | 15 | iDempiere 14 development |
+| [shared](../../shared/README.md) | 11 | Common workflows |
+| [core](../../core/README.md) | 7 | Core contributions |
 
-There are **93 entries and 33 distinct names**. A version directory expresses a target platform; it does not prove that every API or example was compiled for that version. Read [versioning](../VERSIONING.md) and [the exact per-skill revision inventory](../skill-versions.json).
+**93 entries and 33 distinct skill names.** Each versioned set contains the same 15 workflow names.
 
-## iDempiere 14
-
-The [new target set](../../idempiere-14/README.md) provides the same 15 workflows and inherited Hengsin/core improvements. It targets verified 14.0.0-SNAPSHOT development sources; the actual builder/source revision is discovered before use.
-
-## Versioned plugin workflows
-
-Links below use the iDempiere 13 copy for browsing. Select the actual target version before applying a skill.
+## Plugin skills
 
 | Skill | Purpose |
 |---|---|
-| [idempiere-local-postgres](../../idempiere-13/idempiere-local-postgres/SKILL.md) | Read-only PostgreSQL diagnosis and explicit write controls. |
-| [idempiere-migration-review](../../idempiere-13/idempiere-migration-review/SKILL.md) | Audit model, schema, AD and Java/OSGi consistency. |
-| [idempiere-model-designer](../../idempiere-13/idempiere-model-designer/SKILL.md) | Specify entities, references, lifecycle and dictionary requirements. |
-| [idempiere-pipo-integrity-review](../../idempiere-13/idempiere-pipo-integrity-review/SKILL.md) | Review dictionary/physical types and PackOut dependencies. |
-| [idempiere-plugin-compiler](../../idempiere-13/idempiere-plugin-compiler/SKILL.md) | Discover the real target-platform builder and report artifacts. |
-| [idempiere-plugin-version-upgrader](../../idempiere-13/idempiere-plugin-version-upgrader/SKILL.md) | Plan and verify existing-plugin upgrades on isolated release branches. |
-| [idempiere-plugin-component-developer](../../idempiere-13/idempiere-plugin-component-developer/SKILL.md) | Implement processes, callouts, events and factories with compatible registration. |
-| [idempiere-plugin-designer](../../idempiere-13/idempiere-plugin-designer/SKILL.md) | Translate functional requirements into minimal Java/OSGi designs. |
-| [idempiere-plugin-manual-generator](../../idempiere-13/idempiere-plugin-manual-generator/SKILL.md) | Derive English functional manuals and test guides from actual code/metadata. |
-| [idempiere-plugin-readme](../../idempiere-13/idempiere-plugin-readme/SKILL.md) | Write English plugin README files using repository evidence. |
-| [idempiere-plugin-wiki-page](../../idempiere-13/idempiere-plugin-wiki-page/SKILL.md) | Prepare evidence-based MediaWiki pages for iDempiere plugins. |
-| [idempiere-plugin-test-developer](../../idempiere-13/idempiere-plugin-test-developer/SKILL.md) | Write regression tests with the existing framework and isolated fixtures. |
-| [jenkinsfile-developer](../../idempiere-13/jenkinsfile-developer/SKILL.md) | Maintain release-aware Jenkins builds and documentation pipelines. |
-| [skill-architect](../../idempiere-13/skill-architect/SKILL.md) | Design focused reusable skills when an existing workflow cannot cover the task. |
-| [skill-reviewer](../../idempiere-13/skill-reviewer/SKILL.md) | Review activation, scope, overlap, structure and instruction quality. |
+| [idempiere-local-postgres](../../idempiere-14/idempiere-local-postgres/SKILL.md) | Read-only PostgreSQL diagnosis and explicit write controls. |
+| [idempiere-migration-review](../../idempiere-14/idempiere-migration-review/SKILL.md) | Audit model, schema, AD and Java/OSGi consistency. |
+| [idempiere-model-designer](../../idempiere-14/idempiere-model-designer/SKILL.md) | Specify entities, references, lifecycle and dictionary requirements. |
+| [idempiere-pipo-integrity-review](../../idempiere-14/idempiere-pipo-integrity-review/SKILL.md) | Review dictionary/physical types and PackOut dependencies. |
+| [idempiere-plugin-compiler](../../idempiere-14/idempiere-plugin-compiler/SKILL.md) | Discover the real target-platform builder and report artifacts. |
+| [idempiere-plugin-version-upgrader](../../idempiere-14/idempiere-plugin-version-upgrader/SKILL.md) | Plan and verify existing-plugin upgrades on isolated release branches. |
+| [idempiere-plugin-component-developer](../../idempiere-14/idempiere-plugin-component-developer/SKILL.md) | Implement processes, callouts, events and factories with compatible registration. |
+| [idempiere-plugin-designer](../../idempiere-14/idempiere-plugin-designer/SKILL.md) | Translate functional requirements into minimal Java/OSGi designs. |
+| [idempiere-plugin-manual-generator](../../idempiere-14/idempiere-plugin-manual-generator/SKILL.md) | Derive English functional manuals and test guides from actual code/metadata. |
+| [idempiere-plugin-readme](../../idempiere-14/idempiere-plugin-readme/SKILL.md) | Write English plugin README files using repository evidence. |
+| [idempiere-plugin-wiki-page](../../idempiere-14/idempiere-plugin-wiki-page/SKILL.md) | Prepare evidence-based MediaWiki pages for iDempiere plugins. |
+| [idempiere-plugin-test-developer](../../idempiere-14/idempiere-plugin-test-developer/SKILL.md) | Write regression tests with the existing framework and isolated fixtures. |
+| [jenkinsfile-developer](../../idempiere-14/jenkinsfile-developer/SKILL.md) | Maintain release-aware Jenkins builds and documentation pipelines. |
+| [skill-architect](../../idempiere-14/skill-architect/SKILL.md) | Design focused reusable skills when an existing workflow cannot cover the task. |
+| [skill-reviewer](../../idempiere-14/skill-reviewer/SKILL.md) | Review activation, scope, overlap, structure and instruction quality. |
 
-## Shared workflows
+The links above point to the iDempiere 14 set. Select the directory matching the project version.
+
+## Shared skills
 
 | Skill | Purpose |
 |---|---|
@@ -61,7 +56,7 @@ Links below use the iDempiere 13 copy for browsing. Select the actual target ver
 | [idempiere-grouped-listbox](../../shared/idempiere-grouped-listbox/SKILL.md) | Implement grouped list models, renderers and bounded data access. |
 | [idempiere-wlistbox-custom-editor](../../shared/idempiere-wlistbox-custom-editor/SKILL.md) | Customize existing WListbox column editors/display behavior. |
 
-## Core contributions
+## Core contribution skills
 
 | Skill | Purpose |
 |---|---|
@@ -73,50 +68,32 @@ Links below use the iDempiere 13 copy for browsing. Select the actual target ver
 | [idempiere-pr-review](../../core/idempiere-pr-review/SKILL.md) | Review in gates and test integration in an isolated worktree. |
 | [idempiere-jira-tickets](../../core/idempiere-jira-tickets/SKILL.md) | Draft reproducible bug/feature reports and private security reports. |
 
-## Selecting and using skills
+## Usage
 
-1. Determine whether the work concerns a plugin, core contribution or environment.
-2. Confirm the target iDempiere release, JDK, build and existing registration mechanism.
-3. Read the appropriate versioned workflow, then architecture or specialized shared guidance when it adds useful detail.
-4. For core, read the target AGENTS.md and its task skills first. The central adaptations never replace newer checkout rules.
-5. Keep generated models unchanged; preserve owning transactions, role/client/org access and actual document lifecycle.
-6. Report source/build/test/runtime evidence separately. Installation is a later decision; do not replace an existing installed skill silently.
+1. Select the versioned directory matching the iDempiere project.
+2. Add the shared workflows needed for architecture, quality, REST, ZK or environment work.
+3. Use core workflows only for core contributions. The target checkout's AGENTS.md and local instructions take precedence.
+4. Read SKILL.md and the referenced resources before performing the task.
 
-Examples:
+For Codex, copy each selected skill directory into the project's `.agents/skills/`. Shared/core skills can be placed in the user's global skill library. Copy the entire directory, including scripts, references and assets. Do not load multiple version copies of the same skill name or overwrite existing customizations without reviewing them.
 
-- A callout in an existing plugin uses architecture plus the target component skill and its established factory.
-- A ZUL form uses the ZUL skill after checking the actual form API and resource packaging.
-- A core bug uses the contribution, coding, test and PR-review workflows appropriate to the ticket.
-- A core dictionary change is specified for human UI generation with Centralized IDs; agents review the generated scripts rather than authoring replacements.
+## Target versions
 
-## Requirements and validation
+The version folders identify the intended iDempiere line. The project source, JDK, APIs, target platform and builder determine actual compatibility. iDempiere 14 targets development sources; inspect the selected source revision before building.
 
-Reading skills needs an agent that can access Markdown and local resources. No Gemini CLI, Eclipse or specific connector is required merely to read the catalog. Implementation/build requirements come from the target project. Catalog validation uses Python 3 and PyYAML; the PR helper uses Git 2.31+, Bash 3.2+ and a local Git identity.
-
-From the repository root:
-
-```bash
-python3 scripts/validate_catalog.py
-python3 scripts/catalog_versions.py --check
-python3 tests/test_review_pr.py
-```
-
-The adoption review records 78 validated entries and ten passing local Git-helper scenarios. Those checks do not compile Java, activate OSGi, import 2Pack or validate PostgreSQL/Oracle/UI behavior. See [the review](../ADOPTION_REVIEW.es.md) for the precise boundaries.
-
-## Revision policy
-
-Skill content revisions are SHA-256 digests of instructions and resources. Target iDempiere lines, content revisions, upstream source commits and published releases are separate concepts. No “Tested with release” status is inferred from this repository's version directories or main branch. Future releases need an agreed tag and explicit evidence.
-
-## Sources and maintenance
-
-[Provenance](../SOURCES.md) records the existing catalog, installed custom skills, Hengsin's component pack and the seven upstream core workflows. Public GitHub links identify the source repository; local additions require a separate commit/push before appearing remotely.
-
-The catalog is MIT-licensed. Follow the target core/plugin license headers when implementing code. A future update should check scope/overlap, review all affected version copies, validate resources and refresh the content inventory.
+Skill revisions are maintained through Git history. See [version selection](../../docs/VERSIONING.md). The companion [idempiere-dev-environments repository](https://github.com/Carl0gonzalez/idempiere-dev-environments) provides isolated development-environment guidance.
 
 ## Documentation
 
-- [Root README](../../README.md).
-- [Version selection and revisions](../VERSIONING.md).
-- [Shared catalog](../../shared/README.md) and [core catalog](../../core/README.md).
-- [Installed custom-skill snapshot](../INSTALLED_SKILLS_INVENTORY.md).
-- [Local wiki formats and publication state](README.md).
+- [English wiki](https://github.com/Carl0gonzalez/AI-Skills-Idempiere/wiki/Home).
+- [Spanish wiki](https://github.com/Carl0gonzalez/AI-Skills-Idempiere/wiki/Inicio).
+- [Wiki source files](../../docs/wiki/README.md).
+- [Sources](../../docs/SOURCES.md).
+
+## Maintenance
+
+Keep skill names and activation criteria specific. Reuse existing workflows before adding another skill. Keep required resources inside the skill directory. Review affected version copies when changing shared behavior and update the English/Spanish catalogs together.
+
+## License
+
+[MIT](../../LICENSE). Copyright © 2026 Carlo González.

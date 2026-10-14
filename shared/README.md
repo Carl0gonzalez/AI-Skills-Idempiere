@@ -2,7 +2,7 @@
 
 **English** | [Español](README.es.md)
 
-The **11 shared skills** centralize cross-version workflows. Confirm the target release and resolved APIs; availability of an instruction does not establish runtime support. Reuse the project's scaffold/factories and select only the workflows needed.
+Eleven workflows for architecture, quality, environments, task management and specialized components. Inspect the target release and supported APIs before using them.
 
 | Skill | Purpose |
 |---|---|
@@ -18,8 +18,4 @@ The **11 shared skills** centralize cross-version workflows. Confirm the target 
 | [idempiere-grouped-listbox](idempiere-grouped-listbox/SKILL.md) | Implement grouped list models, renderers and bounded data access. |
 | [idempiere-wlistbox-custom-editor](idempiere-wlistbox-custom-editor/SKILL.md) | Customize existing WListbox column editors/display behavior. |
 
-Process/callout/model registration alternatives stay in the versioned component/model skills to avoid competing instructions. Test authoring stays in plugin-test-developer; quality-gate coordinates execution and evidence. Environment/task workflows are independent of core policy.
-
-## Revisions and references
-
-See [versioning](../docs/VERSIONING.md), [sources](../docs/SOURCES.md), [adoption review](../docs/ADOPTION_REVIEW.es.md) and the [wiki](../docs/wiki/Home.md). These instructions do not install skills or publish pages to a remote wiki.
+See the [repository catalog](../README.md) and [version selection](../docs/VERSIONING.md).

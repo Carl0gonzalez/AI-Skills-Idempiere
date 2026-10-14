@@ -1,8 +1,8 @@
-# Core contribution guidance
+# Core contribution skills
 
 **English** | [Español](README.es.md)
 
-The **seven core workflows** are local adaptations of upstream commit 75ad26081a1745ab64831567861ad8f9f6f78d36. Read the actual core AGENTS.md, matching skills and official documentation first. They do not impose core Jira/ID/migration policies on this library or on private plugins.
+Seven workflows for contributions to iDempiere core. Read the target checkout's AGENTS.md, local skills and official documentation first. Core contribution policies do not automatically apply to private plugins.
 
 | Skill | Purpose |
 |---|---|
@@ -14,22 +14,9 @@ The **seven core workflows** are local adaptations of upstream commit 75ad26081a
 | [idempiere-pr-review](idempiere-pr-review/SKILL.md) | Review in gates and test integration in an isolated worktree. |
 | [idempiere-jira-tickets](idempiere-jira-tickets/SKILL.md) | Draft reproducible bug/feature reports and private security reports. |
 
-## Execution boundaries
+## PR review helper
 
-Core migration scripts, AD IDs/UUIDs and regenerated models are produced by the developer under upstream rules. Agents specify and review them. Commits, pushing, PR/ticket publication, SyncDB and server execution are separate actions governed by the user's authorization.
+The PR-review skill includes an isolated-worktree helper. It preserves the original checkout and refuses cleanup when the review worktree contains additional work. Requirements: Git 2.31+, Bash 3.2+ and a configured local Git identity; Windows uses Git Bash. Read the skill before running the helper. See [core policy](CORE_POLICY.md).
 
-## Local PR helper
 
-The helper uses an isolated detached worktree, checks the effective official upstream URL and preserves the original checkout. It refuses cleanup with tracked/untracked/ignored work or changed HEAD and has no force-delete mode. It does not revert DB migrations or stop servers.
-
-Requirements: Git 2.31+ (worktrees/--path-format), Bash 3.2+, local identity for the synthetic unpublished review merge. Windows uses Git Bash. Tests use temporary local fixture transport; no live GitHub PR is claimed tested.
-
-```bash
-python3 tests/test_review_pr.py
-```
-
-Read [policy](CORE_POLICY.md) and the PR-review skill before preparing a worktree.
-
-## Revisions and references
-
-See [versioning](../docs/VERSIONING.md), [sources](../docs/SOURCES.md), [adoption review](../docs/ADOPTION_REVIEW.es.md) and the [wiki](../docs/wiki/Home.md). These instructions do not install skills or publish pages to a remote wiki.
+See the [repository catalog](../README.md) and [version selection](../docs/VERSIONING.md).

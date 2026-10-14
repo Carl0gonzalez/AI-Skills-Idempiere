@@ -2,7 +2,7 @@
 
 **English** | [Español](README.es.md)
 
-This directory contains **15 skills targeting iDempiere 10 projects**. It identifies the intended platform, not the release number of each skill or proof of Java/OSGi/database compatibility. Inspect the actual project APIs, scaffold and build before applying a workflow.
+The **15 skills** in this directory target iDempiere 10 projects. Select this set for the matching project source and build configuration.
 
 ## Catalog
 
@@ -24,23 +24,8 @@ This directory contains **15 skills targeting iDempiere 10 projects**. It identi
 | [skill-architect](skill-architect/SKILL.md) | Design focused reusable skills when an existing workflow cannot cover the task. |
 | [skill-reviewer](skill-reviewer/SKILL.md) | Review activation, scope, overlap, structure and instruction quality. |
 
-## Selecting complementary skills
+## Use
 
-Select this version set once. Add relevant [shared skills](../shared/README.md) for architecture, quality, environments, REST and ZK. Read [core guidance](../core/README.md) only for core contributions; the actual checkout's AGENTS.md and local skills take precedence. Do not install multiple version copies with the same name together.
+Copy the selected skill directories, including their resources, into the project's skill library. Use one version copy per skill name. Add relevant [shared skills](../shared/README.md); use [core guidance](../core/README.md) for core contributions under the target checkout's rules.
 
-## Revisions and maintenance
-
-See [skill versioning](../docs/VERSIONING.md) and [the exact content inventory](../docs/skill-versions.json). Version-specific entrypoints and resources are tracked separately. Changes common to releases must be reviewed in all affected copies; APIs must not be propagated blindly. Use repository validation before considering installation.
-
-## Use and validation
-
-Ask the agent to read the relevant SKILL.md and only the necessary resources. Each skill lives in its own directory and has name/description metadata. Installing, committing, publishing or applying database changes is a separate authorized action.
-
-From the repository root:
-
-```bash
-python3 scripts/validate_catalog.py
-python3 scripts/catalog_versions.py --check
-```
-
-See the [English wiki](../docs/wiki/Home.md), [root README](../README.md) and [adoption review](../docs/ADOPTION_REVIEW.es.md). This documentation update does not install skills.
+Check the actual release APIs, scaffold and build before applying a workflow. See [version selection](../docs/VERSIONING.md) and the [repository catalog](../README.md).

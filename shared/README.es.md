@@ -2,7 +2,7 @@
 
 **Español** | [English](README.md)
 
-Las **11 skills comunes** centralizan workflows transversales. Confirmar la release objetivo y APIs resueltas; disponer de una instrucción no demuestra soporte runtime. Reutilizar scaffold/factories y seleccionar sólo los workflows necesarios.
+Once workflows para arquitectura, calidad, entornos, tareas y componentes especializados. Revisar la release objetivo y APIs disponibles antes de utilizarlos.
 
 | Skill | Propósito |
 |---|---|
@@ -18,8 +18,4 @@ Las **11 skills comunes** centralizan workflows transversales. Confirmar la rele
 | [idempiere-grouped-listbox](idempiere-grouped-listbox/SKILL.md) | Implementar modelos agrupados, renderers y acceso limitado a datos. |
 | [idempiere-wlistbox-custom-editor](idempiere-wlistbox-custom-editor/SKILL.md) | Personalizar editores y presentación de columnas WListbox existentes. |
 
-Las alternativas de registro de procesos/callouts/modelos permanecen en las skills versionadas de componentes/modelos para evitar instrucciones competidoras. plugin-test-developer escribe pruebas; quality-gate coordina ejecución y evidencia. Entornos/tareas son independientes de la política core.
-
-## Revisiones y referencias
-
-Consultar [versionado](../docs/VERSIONING.es.md), [fuentes](../docs/SOURCES.md), [revisión de adopción](../docs/ADOPTION_REVIEW.es.md) y [wiki](../docs/wiki/Inicio.md). Estas instrucciones no instalan skills ni publican páginas en una wiki remota.
+Consultar [catálogo del repo](../README.es.md) y [selección de versiones](../docs/VERSIONING.es.md).

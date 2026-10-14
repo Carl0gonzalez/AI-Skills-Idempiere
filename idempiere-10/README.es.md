@@ -2,7 +2,7 @@
 
 **Español** | [English](README.md)
 
-Esta carpeta contiene **15 skills orientadas a proyectos iDempiere 10**. Identifica la plataforma objetivo, no la versión publicada de cada skill ni una certificación Java/OSGi/base de datos. Revisar APIs, scaffold y build reales antes de aplicar un workflow.
+Las **15 skills** de esta carpeta se orientan a proyectos iDempiere 10. Seleccionar este conjunto según la fuente y configuración de build del proyecto.
 
 ## Catálogo
 
@@ -24,23 +24,8 @@ Esta carpeta contiene **15 skills orientadas a proyectos iDempiere 10**. Identif
 | [skill-architect](skill-architect/SKILL.md) | Diseñar skills focalizadas cuando el catálogo no cubre una tarea reutilizable. |
 | [skill-reviewer](skill-reviewer/SKILL.md) | Revisar activación, alcance, duplicación, estructura y calidad de instrucciones. |
 
-## Seleccionar skills complementarias
+## Uso
 
-Seleccionar este conjunto de versión una sola vez. Añadir las [skills comunes](../shared/README.es.md) pertinentes para arquitectura, calidad, entornos, REST y ZK. Consultar [guías del core](../core/README.es.md) sólo para contribuciones al core; prevalecen AGENTS.md y skills del checkout real. No instalar varias copias con el mismo nombre de distintas versiones.
+Copiar las carpetas seleccionadas con todos sus recursos a la biblioteca del proyecto. Usar una sola copia de versión por nombre. Añadir las [skills comunes](../shared/README.es.md) pertinentes; usar [guías core](../core/README.es.md) para contribuciones según las reglas del checkout real.
 
-## Revisiones y mantenimiento
-
-Consultar [versionado de skills](../docs/VERSIONING.es.md) y [el inventario exacto de contenido](../docs/skill-versions.json). Cada copia y sus recursos tienen revisión propia. Los cambios comunes deben revisarse en todas las copias afectadas, sin propagar APIs a ciegas. Validar el repositorio antes de evaluar instalación.
-
-## Uso y validación
-
-Pedir al agente que lea SKILL.md y sólo los recursos necesarios. Cada skill vive en su carpeta y tiene metadatos name/description. Instalar, hacer commit, publicar o escribir en BD son acciones autorizadas por separado.
-
-Desde la raíz del repositorio:
-
-```bash
-python3 scripts/validate_catalog.py
-python3 scripts/catalog_versions.py --check
-```
-
-Consultar [wiki en español](../docs/wiki/Inicio.md), [README principal](../README.es.md) y [revisión de adopción](../docs/ADOPTION_REVIEW.es.md). Esta actualización de documentación no instala skills.
+Revisar APIs, scaffold y build antes de aplicar un workflow. Consultar [selección de versiones](../docs/VERSIONING.es.md) y [catálogo del repo](../README.es.md).
