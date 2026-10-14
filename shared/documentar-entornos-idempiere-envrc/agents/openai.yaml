@@ -1,0 +1,4 @@
+interface:
+  display_name: "Documentar entornos iDempiere con envrc"
+  short_description: "Documenta entornos desde su envrc real"
+  default_prompt: "Usa $documentar-entornos-idempiere-envrc para crear o sincronizar la documentación de un entorno desde su .envrc."

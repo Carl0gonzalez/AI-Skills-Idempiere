@@ -1,0 +1,4 @@
+interface:
+  display_name: "Crear entornos iDempiere con envrc"
+  short_description: "Crea y valida entornos iDempiere aislados"
+  default_prompt: "Usa $crear-entornos-idempiere-envrc para crear o revisar un entorno iDempiere aislado basado en .envrc."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "iDempiere Architecture Patterns"
+  short_description: "Simple, version-aware iDempiere architecture"
+  default_prompt: "Use $idempiere-architecture-patterns to choose and implement the simplest architecture compatible with this iDempiere project."

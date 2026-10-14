@@ -1,0 +1,4 @@
+interface:
+  display_name: "iDempiere Plugin Quality Gate"
+  short_description: "Pruebas, cobertura y calidad para plugins iDempiere"
+  default_prompt: "Usa $idempiere-plugin-quality-gate para generar y ejecutar un quality gate completo sobre este plugin iDempiere."

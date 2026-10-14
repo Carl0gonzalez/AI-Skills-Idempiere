@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gestionar tareas"
+  short_description: "Mantén el estado de tareas del repositorio"
+  default_prompt: "Revisa o actualiza la tarea activa del repositorio."
