@@ -9,6 +9,7 @@
 [![iDempiere 10](https://img.shields.io/badge/iDempiere-10-20BF6B)](idempiere-10/)
 [![iDempiere 12](https://img.shields.io/badge/iDempiere-12-8854D0)](idempiere-12/)
 [![iDempiere 13](https://img.shields.io/badge/iDempiere-13-E67E22)](idempiere-13/)
+[![iDempiere 14](https://img.shields.io/badge/iDempiere-14-546DE5)](idempiere-14/)
 
 This repository centralizes reusable instructions for AI development assistants. It keeps guidance consistent and separates it by major iDempiere version, reducing the risk of applying assumptions, build settings, or platform-specific instructions to an incompatible codebase.
 
@@ -18,7 +19,7 @@ The catalog covers OSGi plugins, version upgrades, the Application Dictionary, P
 
 | | |
 |---|---|
-| **Versioned sets** | iDempiere 8, 10, 12, and 13; shared APIs require target-release verification |
+| **Versioned sets** | iDempiere 8, 10, 12, 13, and 14; shared APIs require target-release verification |
 | **Catalog** | 15 skills per version + 11 shared skills + 7 core-contribution skills (33 distinct names) |
 | **Primary format** | Self-contained `SKILL.md` directories |
 | **Installation** | Select one target set and relevant shared/core skills; review existing-name conflicts first |
@@ -49,6 +50,7 @@ The catalog covers OSGi plugins, version upgrades, the Application Dictionary, P
 ├── idempiere-10/                # Skills for iDempiere 10 repositories
 ├── idempiere-12/                # Skills for iDempiere 12 repositories
 ├── idempiere-13/                # Skills for iDempiere 13 repositories
+├── idempiere-14/                # Skills targeting iDempiere 14 development
 ├── shared/                      # Cross-version skills; verify target APIs
 ├── core/                        # Core contribution adaptations
 ├── docs/                        # Adoption review and provenance
@@ -67,6 +69,7 @@ Each version directory retains its 15 self-contained skill entries. shared/ cent
 | [`idempiere-10`](idempiere-10/README.md) | iDempiere 10 | Projects, plugins, and target platforms based on v10. |
 | [`idempiere-12`](idempiere-12/README.md) | iDempiere 12 | Projects, plugins, and target platforms based on v12. |
 | [`idempiere-13`](idempiere-13/README.md) | iDempiere 13 | Projects, plugins, and target platforms based on v13. |
+| [`idempiere-14`](idempiere-14/README.md) | iDempiere 14 | Projects, plugins, and target platforms targeting v14 development; verify the actual source commit. |
 
 ## Organization rules
 
@@ -211,10 +214,10 @@ A successful Maven/Tycho build verifies Java and OSGi resolution for the compile
 
 ## Skill revisions and bilingual wiki
 
-Target iDempiere versions and skill content revisions are different. The catalog has four target sets (8/10/12/13), shared workflows and core-only workflows. No published release or tested runtime status is inferred from a directory name.
+Target iDempiere versions and skill content revisions are different. The catalog has five target sets (8/10/12/13/14), shared workflows and core-only workflows. No published release or tested runtime status is inferred from a directory name.
 
 - [Versioning and compatibility matrix](docs/VERSIONING.md).
-- [Exact revisions of all 78 skill entries](docs/skill-versions.json).
+- [Exact revisions of all 93 skill entries](docs/skill-versions.json).
 - [English wiki](docs/wiki/Home.md) and [Spanish wiki](docs/wiki/Inicio.md).
 - [MediaWiki editions and publication state](docs/wiki/README.md).
 - Each version, shared and core README has an English/Spanish language switch.
@@ -225,15 +228,15 @@ After an intended skill/resource change, review it and run `python3 scripts/cata
 
 This matrix shows documented workflow coverage, not tested runtime support. Exact APIs/build requirements are verified in the target project.
 
-| Area | iDempiere 8 | iDempiere 10 | iDempiere 12 | iDempiere 13 |
-|---|:---:|:---:|:---:|:---:|
-| Modeling, migrations, and PIPO | ✓ | ✓ | ✓ | ✓ |
-| Plugin design, development, and testing | ✓ | ✓ | ✓ | ✓ |
-| Controlled plugin version upgrades | ✓ | ✓ | ✓ | ✓ |
-| Documentation and user manuals | ✓ | ✓ | ✓ | ✓ |
-| Safe PostgreSQL diagnostics | ✓ | ✓ | ✓ | ✓ |
-| Version-aware Jenkins support | ✓ | ✓ | ✓ | ✓ |
-| Builder and target-platform branch | Verify in the target repository | Verify in the target repository | Based on the target repository configuration | Verify in the target repository |
+| Area | iDempiere 8 | iDempiere 10 | iDempiere 12 | iDempiere 13 | iDempiere 14 |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Modeling, migrations, and PIPO | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Plugin design, development, and testing | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Controlled plugin version upgrades | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Documentation and user manuals | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Safe PostgreSQL diagnostics | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Version-aware Jenkins support | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Builder and target-platform branch | Verify in the target repository | Verify in the target repository | Based on the target repository configuration | Verify in the target repository | Verify actual development commit |
 
 > Never reuse a Docker image or target-platform branch from another major iDempiere version automatically. The Jenkins skill requires discovery and configuration of the builder used by the target project.
 
@@ -248,8 +251,8 @@ Clone this repository and ask an AI assistant to install the skills from the loc
 ```text
 I need to install a local set of skills for my AI agent.
 
-Skill source: <local-clone-path>/idempiere-<8|10|12|13>/
-Target iDempiere version: <8|10|12|13>
+Skill source: <local-clone-path>/idempiere-<8|10|12|13|14>/
+Target iDempiere version: <8|10|12|13|14>
 
 Inspect that directory, identify every skill containing a SKILL.md file, and propose copying or linking them into the skill library used by this environment. Before modifying files, tell me:
 1. Which skills you found and the destination path you will use.

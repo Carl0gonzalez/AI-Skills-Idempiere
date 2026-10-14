@@ -13,11 +13,15 @@ Esta biblioteca ofrece a los agentes IA instrucciones reutilizables para desarro
 
 | Carpeta | Skills | Uso |
 |---|---:|---|
-| idempiere-8, idempiere-10, idempiere-12, idempiere-13 | 15 en cada una | Seleccionar la línea objetivo real del proyecto |
+| idempiere-8, idempiere-10, idempiere-12, idempiere-13, idempiere-14 | 15 en cada una | Seleccionar la línea objetivo real del proyecto |
 | shared | 11 | Arquitectura, calidad, entornos y componentes especializados |
 | core | 7 | Contribuir al core según las reglas del checkout real |
 
-Hay **78 entradas y 33 nombres distintos**. Una carpeta de versión expresa plataforma objetivo; no demuestra que cada API/ejemplo se compiló para esa release. Consultar [versionado](../VERSIONING.es.md) e [inventario exacto por skill](../skill-versions.json).
+Hay **93 entradas y 33 nombres distintos**. Una carpeta de versión expresa plataforma objetivo; no demuestra que cada API/ejemplo se compiló para esa release. Consultar [versionado](../VERSIONING.es.md) e [inventario exacto por skill](../skill-versions.json).
+
+## iDempiere 14
+
+El [nuevo conjunto objetivo](../../idempiere-14/README.es.md) contiene los mismos 15 workflows y las mejoras heredadas de Hengsin/core. Se orienta al desarrollo 14.0.0-SNAPSHOT verificado; antes de usarlo se descubre el builder y commit reales.
 
 ## Workflows versionados de plugins
 

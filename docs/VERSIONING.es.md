@@ -6,11 +6,11 @@ Deben distinguirse tres identificadores:
 
 | Identificador | Significado | Evidencia |
 |---|---|---|
-| Línea objetivo iDempiere | Familia del proyecto: 8, 10, 12 o 13 | Carpeta de versión y checkout objetivo real |
+| Línea objetivo iDempiere | Familia del proyecto: 8, 10, 12, 13 o 14 | Carpeta de versión y checkout objetivo real |
 | Revisión de contenido de la skill | Instrucciones, scripts, referencias, assets y metadatos UI exactos | SHA-256 en [skill-versions.json](skill-versions.json) |
 | Release publicada del catálogo | Versión/tag emitida deliberadamente por el mantenedor | Tag/release Git; esta actualización no asigna ninguna |
 
-La rama local es `main`; durante la revisión del 2026-10-14 no se encontraron tags locales de release ni ramas semánticas de versión. Las cuatro carpetas son conjuntos objetivo, no cuatro releases del software. Una carpeta iDempiere 13 no justifica afirmar «Probado con release 13.0.0».
+La rama local es `main`; durante la revisión del 2026-10-14 no se encontraron tags locales de release ni ramas semánticas de versión. Las cinco carpetas son conjuntos objetivo, no cinco releases del software. Una carpeta iDempiere 13 no justifica afirmar «Probado con release 13.0.0».
 
 ## Matriz del catálogo
 
@@ -20,10 +20,11 @@ La rama local es `main`; durante la revisión del 2026-10-14 no se encontraron t
 | [idempiere-10](../idempiere-10/README.es.md) | 15 | Proyectos orientados a iDempiere 10 | Descubrir/verificar APIs y build de la release real |
 | [idempiere-12](../idempiere-12/README.es.md) | 15 | Proyectos orientados a iDempiere 12 | Descubrir/verificar APIs y build de la release real |
 | [idempiere-13](../idempiere-13/README.es.md) | 15 | Proyectos orientados a iDempiere 13 | Descubrir/verificar APIs y build de la release real |
+| [idempiere-14](../idempiere-14/README.es.md) | 15 | Proyectos orientados a iDempiere 14 en desarrollo | Descubrir/verificar APIs y build de la release real |
 | [shared](../shared/README.es.md) | 11 | Arquitectura, calidad, entornos, tareas y componentes especializados | No se declara soporte global; verificar cada API requerida |
 | [core](../core/README.es.md) | 7 | Contribuciones al checkout real del core | Prevalecen sus reglas y release frente a la adaptación fijada |
 
-Total: **78 entradas y 33 nombres distintos**. Las copias de un mismo nombre en distintas versiones son deliberadas. Instalar sólo una copia objetivo de cada nombre en una biblioteca de agente.
+Total: **93 entradas y 33 nombres distintos**. Las copias de un mismo nombre en distintas versiones son deliberadas. Instalar sólo una copia objetivo de cada nombre en una biblioteca de agente.
 
 ## Revisiones exactas por skill
 
@@ -56,3 +57,7 @@ Antes de emitir una release: revisar workflows modificados, validar recursos/scr
 ## Estado instalado frente a estado versionado
 
 [El inventario instalado previo](INSTALLED_SKILLS_INVENTORY.md) registra hashes de entrypoints instalados. Este inventario identifica las skills actuales del repo y todos sus recursos. Tienen propósitos distintos. Mejorar el repo no actualiza automáticamente las skills instaladas; conflictos y selección de destino se revisan por separado.
+
+## Base de desarrollo iDempiere 14
+
+El conjunto nuevo contiene 15 workflows e incorpora las mejoras previamente adoptadas de Hengsin/core. [14.0.0-SNAPSHOT, JDK 17, Tycho 4.0.8](https://github.com/idempiere/idempiere/blob/75ad26081a1745ab64831567861ad8f9f6f78d36/org.idempiere.parent/pom.xml). Las guías de build/CI descubren imágenes compatibles reales; no se presupone un tag source-release-14.

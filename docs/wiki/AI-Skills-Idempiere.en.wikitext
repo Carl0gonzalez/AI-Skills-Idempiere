@@ -3,15 +3,15 @@
 * '''Owner:''' Carlo González
 * '''License:''' [https://github.com/Carl0gonzalez/AI-Skills-Idempiere/blob/main/LICENSE MIT]
 * '''Sources:''' [https://github.com/Carl0gonzalez/AI-Skills-Idempiere AI-Skills-Idempiere]
-* '''Status:''' Target sets for iDempiere 8, 10, 12 and 13; actual API compatibility requires target verification. Local draft; no release is declared.
+* '''Status:''' Target sets for iDempiere 8, 10, 12, 13 and 14; actual API compatibility requires target verification. Local draft; no release is declared.
 
 == Description ==
 
-A versioned library of AI-agent instructions for iDempiere plugins, environments and core contributions. It is not an OSGi plugin. The local catalog contains 78 entries and 33 distinct names.
+A versioned library of AI-agent instructions for iDempiere plugins, environments and core contributions. It is not an OSGi plugin. The local catalog contains 93 entries and 33 distinct names.
 
 == Versioned workflows ==
 
-The same 15 names exist under each target line: 8, 10, 12 and 13. Select the actual release and never load competing copies of one name.
+The same 15 names exist under each target line: 8, 10, 12, 13 and 14. Select the actual release and never load competing copies of one name.
 
 {| class="wikitable"
 ! Skill !! Purpose
@@ -94,6 +94,10 @@ The same 15 names exist under each target line: 8, 10, 12 and 13. Select the act
 |-
 | <code>idempiere-jira-tickets</code> || Draft reproducible bug/feature reports and private security reports.
 |}
+
+== iDempiere 14 ==
+
+The idempiere-14 target set adds 15 workflows for verified 14.0.0-SNAPSHOT development. JDK/build values and builder images require target-source verification; no release-14 image or runtime certification is implied.
 
 == Requirements and use ==
 

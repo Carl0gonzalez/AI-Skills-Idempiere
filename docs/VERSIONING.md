@@ -6,11 +6,11 @@ Three different identifiers must remain distinct:
 
 | Identifier | Meaning | Evidence |
 |---|---|---|
-| iDempiere target line | Project family the instructions target: 8, 10, 12 or 13 | Version directory and actual target checkout |
+| iDempiere target line | Project family the instructions target: 8, 10, 12, 13 or 14 | Version directory and actual target checkout |
 | Skill content revision | Exact instructions plus scripts, references, assets and UI metadata | SHA-256 in [skill-versions.json](skill-versions.json) |
 | Published catalog release | A repository release/tag deliberately issued by the maintainer | Git tag/release; none is assigned by this documentation update |
 
-The local branch is `main`; no local release tags or semantic release branches were found during the 2026-10-14 documentation review. The four version directories are target sets, not four software releases. In particular, the presence of an iDempiere 13 directory does not justify “Tested with release 13.0.0”.
+The local branch is `main`; no local release tags or semantic release branches were found during the 2026-10-14 documentation review. The five version directories are target sets, not five software releases. In particular, the presence of an iDempiere 13 directory does not justify “Tested with release 13.0.0”.
 
 ## Catalog matrix
 
@@ -20,10 +20,11 @@ The local branch is `main`; no local release tags or semantic release branches w
 | [idempiere-10](../idempiere-10/README.md) | 15 | Projects targeting iDempiere 10 | Discover/verify actual release APIs and build |
 | [idempiere-12](../idempiere-12/README.md) | 15 | Projects targeting iDempiere 12 | Discover/verify actual release APIs and build |
 | [idempiere-13](../idempiere-13/README.md) | 15 | Projects targeting iDempiere 13 | Discover/verify actual release APIs and build |
+| [idempiere-14](../idempiere-14/README.md) | 15 | Projects targeting iDempiere 14 development | Discover/verify actual release APIs and build |
 | [shared](../shared/README.md) | 11 | Architecture, quality, environments, tasks and specialized components | No blanket release support; check every required API |
 | [core](../core/README.md) | 7 | Contributions to the actual core checkout | Actual core rules and release prevail over the pinned adaptation |
 
-Total: **78 entries, 33 distinct names**. Duplicate names across version sets are intentional copies. Install only one target copy of a given name in an agent library.
+Total: **93 entries, 33 distinct names**. Duplicate names across version sets are intentional copies. Install only one target copy of a given name in an agent library.
 
 ## Exact per-skill revisions
 
@@ -56,3 +57,7 @@ Before issuing a release, review changed workflows, validate resources/scripts, 
 ## Installed versus versioned state
 
 [The installed custom-skill snapshot](INSTALLED_SKILLS_INVENTORY.md) records earlier installed entrypoint hashes. This content inventory records the current repository skills and all their resources. They serve different purposes. Repository improvements do not automatically update installed skills; installation conflicts and target selection are reviewed separately.
+
+## iDempiere 14 development baseline
+
+The new set contains 15 instruction workflows, including the previously adopted Hengsin/core improvements. [14.0.0-SNAPSHOT, JDK 17, Tycho 4.0.8](https://github.com/idempiere/idempiere/blob/75ad26081a1745ab64831567861ad8f9f6f78d36/org.idempiere.parent/pom.xml). The builder/CI guidance discovers actual compatible images; no source-release-14 tag is assumed.

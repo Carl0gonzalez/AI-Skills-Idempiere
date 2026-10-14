@@ -23,3 +23,7 @@ Policy changes incorporated: explicit context routing, exact-release discovery, 
 ## Maintenance
 
 Review upstream changes before updating these adaptations. Keep source commit, adoption decisions and executed checks visible. Do not treat a fetched document, a skill validator or local Git fixture tests as Java compilation, DB compatibility or production readiness.
+
+## iDempiere 14 target set
+
+The 15 entries under idempiere-14 inherit the reviewed version-13 workflows and the common Hengsin/core adaptations. Platform prose was retargeted without rewriting historical migration guidance. Compiler/Jenkins instructions now discover an actual compatible development builder rather than extrapolating Docker tags. Official master at 75ad26081a1745ab64831567861ad8f9f6f78d36 was checked on 2026-10-14: revision 14.0.0-SNAPSHOT, JDK 17, Tycho 4.0.8, ZK 10.3.0.1 and Maven wrapper distribution 3.9.10. These source facts do not certify plugin runtime compatibility.

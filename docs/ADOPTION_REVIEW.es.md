@@ -105,3 +105,7 @@ Se añadieron README bilingües para las cuatro líneas objetivo, shared y core,
 La wiki local tiene [edición inglesa](wiki/Home.md), [edición española](wiki/Inicio.md) y fuentes MediaWiki enlazadas desde su [índice](wiki/README.es.md). Se adaptó la skill de wiki a una biblioteca de skills, sin categoría de plugins ni promesas de instalación OSGi. Estado: archivos locales, sin preview o publicación remota.
 
 Validación adicional ejecutada: cuatro pruebas de revisiones de contenido, comprobación read-only del inventario, enlaces del catálogo y equilibrio de tablas/tags de ambas fuentes MediaWiki. Las cuatro pruebas verifican copias por versión, cambios/movimientos de recursos, separación de README y rechazo de inventario desactualizado sin escritura. No alteran skills instaladas ni prueban runtime iDempiere.
+
+## Incorporación de iDempiere 14
+
+Se añadió un quinto conjunto de 15 skills, con README bilingües y entradas wiki Markdown/MediaWiki. El catálogo actual tiene 93 entradas y conserva 33 nombres distintos; los conteos de 78 anteriores corresponden a la revisión histórica previa. Se verificó el commit oficial 75ad26081a1745ab64831567861ad8f9f6f78d36, con 14.0.0-SNAPSHOT, JDK 17, Tycho 4.0.8 y Maven Wrapper 3.9.10. Las guías de compiler/Jenkins no inventan release-14 ni imágenes source-release-14 y las referencias de upgrades mantienen datos históricos explícitos. Se heredan las mejoras Hengsin/core; shared y core no se duplican. No se instala ni compila Java como parte de esta incorporación documental.

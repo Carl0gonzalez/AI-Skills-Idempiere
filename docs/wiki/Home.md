@@ -13,11 +13,15 @@ This library gives AI agents reusable instructions for iDempiere development. It
 
 | Directory | Skills | Use |
 |---|---:|---|
-| idempiere-8, idempiere-10, idempiere-12, idempiere-13 | 15 in each | Select the actual project's target line |
+| idempiere-8, idempiere-10, idempiere-12, idempiere-13, idempiere-14 | 15 in each | Select the actual project's target line |
 | shared | 11 | Architecture, quality, environments and specialized components |
 | core | 7 | Contribute to iDempiere core under the actual checkout's rules |
 
-There are **78 entries and 33 distinct names**. A version directory expresses a target platform; it does not prove that every API or example was compiled for that version. Read [versioning](../VERSIONING.md) and [the exact per-skill revision inventory](../skill-versions.json).
+There are **93 entries and 33 distinct names**. A version directory expresses a target platform; it does not prove that every API or example was compiled for that version. Read [versioning](../VERSIONING.md) and [the exact per-skill revision inventory](../skill-versions.json).
+
+## iDempiere 14
+
+The [new target set](../../idempiere-14/README.md) provides the same 15 workflows and inherited Hengsin/core improvements. It targets verified 14.0.0-SNAPSHOT development sources; the actual builder/source revision is discovered before use.
 
 ## Versioned plugin workflows
 

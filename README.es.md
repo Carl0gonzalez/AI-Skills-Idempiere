@@ -9,6 +9,7 @@
 [![iDempiere 10](https://img.shields.io/badge/iDempiere-10-20BF6B)](idempiere-10/)
 [![iDempiere 12](https://img.shields.io/badge/iDempiere-12-8854D0)](idempiere-12/)
 [![iDempiere 13](https://img.shields.io/badge/iDempiere-13-E67E22)](idempiere-13/)
+[![iDempiere 14](https://img.shields.io/badge/iDempiere-14-546DE5)](idempiere-14/)
 
 Este repositorio centraliza instrucciones reutilizables para asistentes de desarrollo con IA. Mantiene criterios consistentes y los separa por versión mayor de iDempiere, reduciendo el riesgo de aplicar supuestos, configuraciones de compilación o instrucciones de plataforma a una base de código incompatible.
 
@@ -18,7 +19,7 @@ El catálogo cubre plugins OSGi, upgrades de versión, Application Dictionary, P
 
 | | |
 |---|---|
-| **Conjuntos por versión** | iDempiere 8, 10, 12 y 13; las APIs comunes requieren verificación en la release objetivo |
+| **Conjuntos por versión** | iDempiere 8, 10, 12, 13 y 14; las APIs comunes requieren verificación en la release objetivo |
 | **Catálogo** | 15 skills por versión + 11 comunes + 7 de contribución core (33 nombres distintos) |
 | **Formato principal** | Directorios autónomos con `SKILL.md` |
 | **Instalación** | Seleccionar un conjunto objetivo y skills shared/core pertinentes; revisar conflictos de nombres primero |
@@ -54,6 +55,7 @@ El catálogo cubre plugins OSGi, upgrades de versión, Application Dictionary, P
 ├── idempiere-10/                # Skills para repositorios iDempiere 10
 ├── idempiere-12/                # Skills para repositorios iDempiere 12
 ├── idempiere-13/                # Skills para repositorios iDempiere 13
+├── idempiere-14/                # Skills orientadas a iDempiere 14 en desarrollo
 ├── shared/                      # Skills comunes; verificar APIs objetivo
 ├── core/                        # Adaptaciones para contribución al core
 ├── docs/                        # Revisión de adopción y procedencia
@@ -72,6 +74,7 @@ Cada carpeta de versión mantiene sus 15 skills autónomas. shared/ centraliza w
 | [`idempiere-10`](idempiere-10/README.md) | iDempiere 10 | Proyectos, plugins y target platforms basados en v10. |
 | [`idempiere-12`](idempiere-12/README.md) | iDempiere 12 | Proyectos, plugins y target platforms basados en v12. |
 | [`idempiere-13`](idempiere-13/README.md) | iDempiere 13 | Proyectos, plugins y target platforms basados en v13. |
+| [`idempiere-14`](idempiere-14/README.es.md) | iDempiere 14 | Proyectos, plugins y target platforms orientados a v14 en desarrollo; verificar el commit real. |
 
 ---
 
@@ -224,10 +227,10 @@ Una compilación Maven/Tycho exitosa verifica Java y la resolución OSGi de las 
 
 ## Revisiones de skills y wiki bilingüe
 
-La versión objetivo de iDempiere y la revisión de contenido de una skill son conceptos distintos. El catálogo contiene cuatro conjuntos objetivo (8/10/12/13), workflows comunes y workflows exclusivos del core. No se infiere release publicada ni validación runtime del nombre de una carpeta.
+La versión objetivo de iDempiere y la revisión de contenido de una skill son conceptos distintos. El catálogo contiene cinco conjuntos objetivo (8/10/12/13/14), workflows comunes y workflows exclusivos del core. No se infiere release publicada ni validación runtime del nombre de una carpeta.
 
 - [Versionado y matriz de compatibilidad](docs/VERSIONING.es.md).
-- [Revisiones exactas de las 78 entradas](docs/skill-versions.json).
+- [Revisiones exactas de las 93 entradas](docs/skill-versions.json).
 - [Wiki en español](docs/wiki/Inicio.md) y [wiki en inglés](docs/wiki/Home.md).
 - [Ediciones MediaWiki y estado de publicación](docs/wiki/README.es.md).
 - Los README de versiones, shared y core tienen selector inglés/español.
@@ -238,15 +241,15 @@ Tras un cambio intencional de skill/recursos, revisarlo y ejecutar `python3 scri
 
 Esta matriz muestra cobertura documental de workflows, no soporte runtime probado. Las APIs y requisitos de build se verifican en el proyecto objetivo.
 
-| Área | iDempiere 8 | iDempiere 10 | iDempiere 12 | iDempiere 13 |
-|---|:---:|:---:|:---:|:---:|
-| Modelado, migración y PIPO | ✓ | ✓ | ✓ | ✓ |
-| Diseño, desarrollo y pruebas de plugins | ✓ | ✓ | ✓ | ✓ |
-| Upgrades controlados de plugins | ✓ | ✓ | ✓ | ✓ |
-| Documentación y manuales | ✓ | ✓ | ✓ | ✓ |
-| PostgreSQL seguro | ✓ | ✓ | ✓ | ✓ |
-| Jenkins version-aware | ✓ | ✓ | ✓ | ✓ |
-| Builder y rama de target platform | Deben verificarse en el repositorio objetivo | Deben verificarse en el repositorio objetivo | Basados en la configuración del repositorio objetivo | Deben verificarse en el repositorio objetivo |
+| Área | iDempiere 8 | iDempiere 10 | iDempiere 12 | iDempiere 13 | iDempiere 14 |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Modelado, migración y PIPO | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Diseño, desarrollo y pruebas de plugins | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Upgrades controlados de plugins | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Documentación y manuales | ✓ | ✓ | ✓ | ✓ | ✓ |
+| PostgreSQL seguro | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Jenkins version-aware | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Builder y rama de target platform | Deben verificarse en el repositorio objetivo | Deben verificarse en el repositorio objetivo | Basados en la configuración del repositorio objetivo | Deben verificarse en el repositorio objetivo | ✓ |
 
 > Ninguna variante debe reutilizar automáticamente una imagen Docker o rama de target platform de otra versión mayor. La skill Jenkins exige descubrir y configurar el builder correspondiente al proyecto.
 
@@ -257,14 +260,14 @@ Esta matriz muestra cobertura documental de workflows, no soporte runtime probad
 También es válido clonar este repositorio y pedir a cualquier asistente de IA que instale las skills desde la carpeta local. Así se conserva una copia versionada, se selecciona explícitamente la variante de iDempiere y el propio agente realiza la instalación según su mecanismo disponible.
 
 1. Clonar este repositorio en una ubicación elegida por el usuario.
-2. Identificar el directorio de la versión requerida: `idempiere-8/`, `idempiere-10/`, `idempiere-12/` o `idempiere-13/`.
+2. Identificar el directorio de la versión requerida: `idempiere-8/`, `idempiere-10/`, `idempiere-12/`, `idempiere-13/` o `idempiere-14/`.
 3. Copiar el siguiente prompt y reemplazar los valores entre `<...>`.
 
 ```text
 Necesito instalar un conjunto local de skills para mi agente de IA.
 
-Origen de las skills: <ruta-local-del-clon>/idempiere-<8|10|12|13>/
-Versión objetivo de iDempiere: <8|10|12|13>
+Origen de las skills: <ruta-local-del-clon>/idempiere-<8|10|12|13|14>/
+Versión objetivo de iDempiere: <8|10|12|13|14>
 
 Inspecciona esa carpeta, identifica todas las skills que contengan un archivo SKILL.md y propón instalarlas o enlazarlas en la biblioteca de skills que utiliza este entorno. Antes de modificar archivos, indícame:
 1. Las skills detectadas y la ruta de destino que usarás.

@@ -3,15 +3,15 @@
 * '''Responsable:''' Carlo González
 * '''Licencia:''' [https://github.com/Carl0gonzalez/AI-Skills-Idempiere/blob/main/LICENSE MIT]
 * '''Fuentes:''' [https://github.com/Carl0gonzalez/AI-Skills-Idempiere AI-Skills-Idempiere]
-* '''Estado:''' Conjuntos orientados a iDempiere 8, 10, 12 y 13; las APIs requieren verificación objetivo. Borrador local; sin release declarada.
+* '''Estado:''' Conjuntos orientados a iDempiere 8, 10, 12, 13 y 14; las APIs requieren verificación objetivo. Borrador local; sin release declarada.
 
 == Descripción ==
 
-Biblioteca versionada de instrucciones para agentes IA que trabajan con plugins, entornos y contribuciones core de iDempiere. No es un plugin OSGi. El catálogo local contiene 78 entradas y 33 nombres distintos.
+Biblioteca versionada de instrucciones para agentes IA que trabajan con plugins, entornos y contribuciones core de iDempiere. No es un plugin OSGi. El catálogo local contiene 93 entradas y 33 nombres distintos.
 
 == Workflows por versión ==
 
-Los mismos 15 nombres existen en cada línea objetivo: 8, 10, 12 y 13. Seleccionar la release real y no cargar copias competidoras del mismo nombre.
+Los mismos 15 nombres existen en cada línea objetivo: 8, 10, 12, 13 y 14. Seleccionar la release real y no cargar copias competidoras del mismo nombre.
 
 {| class="wikitable"
 ! Skill !! Propósito
@@ -94,6 +94,10 @@ Los mismos 15 nombres existen en cada línea objetivo: 8, 10, 12 y 13. Seleccion
 |-
 | <code>idempiere-jira-tickets</code> || Redactar bugs/features reproducibles y reportes privados de seguridad.
 |}
+
+== iDempiere 14 ==
+
+El conjunto idempiere-14 añade 15 workflows para el desarrollo 14.0.0-SNAPSHOT verificado. Los valores JDK/build e imágenes se comprueban en la fuente objetivo; no se infiere imagen release-14 ni certificación runtime.
 
 == Requisitos y uso ==
 
