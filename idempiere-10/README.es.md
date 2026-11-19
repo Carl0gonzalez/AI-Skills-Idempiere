@@ -4,6 +4,8 @@
 
 Las **15 skills** de esta carpeta se orientan a proyectos iDempiere 10. Seleccionar este conjunto según la fuente y configuración de build del proyecto.
 
+Diseño de modelos, diseño técnico y revisión son copias de las skills comunes de `shared/`; editar allí y sincronizar con `codex/sync_design_skills.py`. Si están instaladas globalmente, no duplicarlas en el proyecto.
+
 ## Catálogo
 
 | Skill | Propósito |

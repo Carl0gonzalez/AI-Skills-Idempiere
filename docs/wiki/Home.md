@@ -13,10 +13,10 @@ Reusable skills for iDempiere plugin development, data modeling, testing, docume
 | [idempiere-12](../../idempiere-12/README.md) | 15 | iDempiere 12 |
 | [idempiere-13](../../idempiere-13/README.md) | 15 | iDempiere 13 |
 | [idempiere-14](../../idempiere-14/README.md) | 15 | iDempiere 14 development |
-| [shared](../../shared/README.md) | 11 | Common workflows |
+| [shared](../../shared/README.md) | 14 | Common workflows |
 | [core](../../core/README.md) | 7 | Core contributions |
 
-**93 entries and 33 distinct skill names.** Each versioned set contains the same 15 workflow names.
+**96 entries and 33 distinct skill names.** Each versioned set contains the same 15 workflow names.
 
 ## Plugin skills
 

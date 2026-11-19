@@ -4,6 +4,12 @@
 
 Skills reutilizables para desarrollo de plugins iDempiere, modelado, pruebas, documentación, entornos y contribuciones al core.
 
+## Especialistas y uso eficiente
+
+[Guía práctica de skills y subagentes](codex/GUIA.es.md): instalación personal, ejemplos de encargos, ahorro de contexto y medición. Dos roles opcionales reutilizan las reglas comunes sin imponer agentes a cada tarea.
+
+[Flujos de desarrollo para Codex](codex/my-harness-codex/README.md) incluye siete skills de propósito general y seis roles opcionales. [Alcance, verificación y restauración](docs/RESPALDO-CODEX.md).
+
 ## Organización
 
 | Carpeta | Entradas | Alcance |
@@ -13,23 +19,23 @@ Skills reutilizables para desarrollo de plugins iDempiere, modelado, pruebas, do
 | [idempiere-12](idempiere-12/README.es.md) | 15 | iDempiere 12 |
 | [idempiere-13](idempiere-13/README.es.md) | 15 | iDempiere 13 |
 | [idempiere-14](idempiere-14/README.es.md) | 15 | iDempiere 14 en desarrollo |
-| [shared](shared/README.es.md) | 11 | Workflows comunes |
+| [shared](shared/README.es.md) | 14 | Workflows comunes |
 | [core](core/README.es.md) | 7 | Contribuciones al core |
 
-**93 entradas y 33 nombres distintos.** Cada conjunto versionado contiene los mismos 15 nombres de workflow.
+**96 entradas y 33 nombres distintos.** Cada conjunto versionado contiene los mismos 15 nombres de workflow.
 
 ## Skills de plugins
 
 | Skill | Propósito |
 |---|---|
 | [idempiere-local-postgres](idempiere-14/idempiere-local-postgres/SKILL.md) | Diagnóstico PostgreSQL de solo lectura y controles explícitos de escritura. |
-| [idempiere-migration-review](idempiere-14/idempiere-migration-review/SKILL.md) | Auditar coherencia entre modelos, esquema, AD y Java/OSGi. |
-| [idempiere-model-designer](idempiere-14/idempiere-model-designer/SKILL.md) | Especificar entidades, referencias, ciclo de vida y requisitos del diccionario. |
+| [idempiere-migration-review](shared/idempiere-migration-review/SKILL.md) | Auditar coherencia entre modelos, esquema, AD y Java/OSGi. |
+| [idempiere-model-designer](shared/idempiere-model-designer/SKILL.md) | Especificar entidades, referencias, ciclo de vida y requisitos del diccionario. |
 | [idempiere-pipo-integrity-review](idempiere-14/idempiere-pipo-integrity-review/SKILL.md) | Revisar tipos físicos/diccionario y dependencias de PackOut. |
 | [idempiere-plugin-compiler](idempiere-14/idempiere-plugin-compiler/SKILL.md) | Descubrir el builder real de target platform e informar artefactos. |
 | [idempiere-plugin-version-upgrader](idempiere-14/idempiere-plugin-version-upgrader/SKILL.md) | Planificar y verificar upgrades de plugins en ramas de versión aisladas. |
 | [idempiere-plugin-component-developer](idempiere-14/idempiere-plugin-component-developer/SKILL.md) | Implementar procesos, callouts, eventos y factories con registro compatible. |
-| [idempiere-plugin-designer](idempiere-14/idempiere-plugin-designer/SKILL.md) | Traducir requisitos funcionales a diseños Java/OSGi mínimos. |
+| [idempiere-plugin-designer](shared/idempiere-plugin-designer/SKILL.md) | Traducir requisitos funcionales a diseños Java/OSGi mínimos. |
 | [idempiere-plugin-manual-generator](idempiere-14/idempiere-plugin-manual-generator/SKILL.md) | Derivar manuales funcionales en inglés y guías de pruebas desde código/metadatos reales. |
 | [idempiere-plugin-readme](idempiere-14/idempiere-plugin-readme/SKILL.md) | Redactar README de plugins en inglés con evidencia del repositorio. |
 | [idempiere-plugin-wiki-page](idempiere-14/idempiere-plugin-wiki-page/SKILL.md) | Preparar páginas MediaWiki de plugins iDempiere basadas en evidencia. |
@@ -38,7 +44,7 @@ Skills reutilizables para desarrollo de plugins iDempiere, modelado, pruebas, do
 | [skill-architect](idempiere-14/skill-architect/SKILL.md) | Diseñar skills focalizadas cuando el catálogo no cubre una tarea reutilizable. |
 | [skill-reviewer](idempiere-14/skill-reviewer/SKILL.md) | Revisar activación, alcance, duplicación, estructura y calidad de instrucciones. |
 
-Los enlaces anteriores apuntan al conjunto iDempiere 14. Seleccionar la carpeta que corresponde a la versión del proyecto.
+Diseño de modelos, diseño técnico y revisión usan la fuente común de `shared/`; las demás entradas apuntan a iDempiere 14. Seleccionar la versión real para los workflows versionados.
 
 ## Skills comunes
 

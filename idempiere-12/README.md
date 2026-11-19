@@ -4,6 +4,8 @@
 
 The **15 skills** in this directory target iDempiere 12 projects. Select this set for the matching project source and build configuration.
 
+Model design, technical design and review are copies of shared skills; edit `shared/` and refresh with `codex/sync_design_skills.py`. Do not duplicate them in a project when installed globally.
+
 ## Catalog
 
 | Skill | Purpose |

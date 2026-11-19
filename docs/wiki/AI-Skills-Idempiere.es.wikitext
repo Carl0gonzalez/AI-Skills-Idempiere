@@ -6,7 +6,7 @@
 
 == Organización ==
 
-Conjuntos objetivo: iDempiere 8, 10, 12, 13 y 14, con 15 skills cada uno. Workflows comunes: 11. Workflows core: 7. Total: 93 entradas y 33 nombres distintos. iDempiere 14 se orienta a fuentes de desarrollo.
+Conjuntos objetivo: iDempiere 8, 10, 12, 13 y 14, con 15 skills cada uno. Workflows comunes: 14. Workflows core: 7. Total: 96 entradas y 33 nombres distintos. iDempiere 14 se orienta a fuentes de desarrollo.
 
 == Skills de plugins ==
 

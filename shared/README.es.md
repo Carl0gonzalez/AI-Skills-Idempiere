@@ -2,10 +2,13 @@
 
 **Español** | [English](README.md)
 
-Once workflows para arquitectura, calidad, entornos, tareas y componentes especializados. Revisar la release objetivo y APIs disponibles antes de utilizarlos.
+Catorce workflows para arquitectura, calidad, entornos, tareas y componentes especializados. Revisar la release objetivo y APIs disponibles antes de utilizarlos.
 
 | Skill | Propósito |
 |---|---|
+| [idempiere-migration-review](idempiere-migration-review/SKILL.md) | Auditar coherencia entre modelos, esquema, AD y Java/OSGi. |
+| [idempiere-model-designer](idempiere-model-designer/SKILL.md) | Especificar entidades, referencias, ciclo de vida y requisitos del diccionario. |
+| [idempiere-plugin-designer](idempiere-plugin-designer/SKILL.md) | Traducir requisitos funcionales a diseños Java/OSGi mínimos. |
 | [idempiere-architecture-patterns](idempiere-architecture-patterns/SKILL.md) | Elegir el mecanismo compatible más simple y distinguir core, plugin y entorno. |
 | [idempiere-plugin-quality-gate](idempiere-plugin-quality-gate/SKILL.md) | Coordinar ejecución de pruebas, cobertura y evidencia de calidad. |
 | [crear-entornos-idempiere-envrc](crear-entornos-idempiere-envrc/SKILL.md) | Crear y revisar entornos direnv aislados con comprobaciones estáticas. |

@@ -113,3 +113,7 @@ Compose rather than duplicate specialized workflows:
 ## Output
 
 Lead with the selected mechanism and why it is the simplest compatible option. Then provide or implement the scoped change, tests/build evidence, affected files, architectural review findings, and remaining runtime limitations. For reviews, prioritize actionable defects and minimum corrections over generic pattern commentary.
+
+## Application Dictionary translations
+
+Always include translations when designing or changing user-visible Application Dictionary metadata. Inspect the target base language and active system languages first; provide the corresponding translation records for new or changed labels, descriptions, help text, reference values and messages where the target table supports translations. Preserve existing translations on technical-only changes. Include the required translation records in the migration or PackOut and verify language coverage before delivery; do not treat a base-language record alone as complete.

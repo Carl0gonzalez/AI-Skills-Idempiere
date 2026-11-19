@@ -6,7 +6,7 @@
 
 == Organization ==
 
-Target sets: iDempiere 8, 10, 12, 13 and 14, each containing 15 skills. Shared workflows: 11. Core workflows: 7. Total: 93 entries and 33 distinct names. iDempiere 14 targets development sources.
+Target sets: iDempiere 8, 10, 12, 13 and 14, each containing 15 skills. Shared workflows: 14. Core workflows: 7. Total: 96 entries and 33 distinct names. iDempiere 14 targets development sources.
 
 == Plugin skills ==
 

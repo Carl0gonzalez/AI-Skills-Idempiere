@@ -4,6 +4,12 @@
 
 Reusable skills for iDempiere plugin development, data modeling, testing, documentation, environments and core contributions.
 
+## Specialists and efficient use
+
+[Codex specialist pilot](codex/README.md): personal installation and a practical guide with prompts, bounded delegation and measurement. Two optional roles reuse shared rules.
+
+[Development workflows for Codex](codex/my-harness-codex/README.md) provides seven general-purpose skills and six optional roles. [Scope, verification and recovery](docs/RESPALDO-CODEX.md).
+
 ## Organization
 
 | Directory | Entries | Scope |
@@ -13,23 +19,23 @@ Reusable skills for iDempiere plugin development, data modeling, testing, docume
 | [idempiere-12](idempiere-12/README.md) | 15 | iDempiere 12 |
 | [idempiere-13](idempiere-13/README.md) | 15 | iDempiere 13 |
 | [idempiere-14](idempiere-14/README.md) | 15 | iDempiere 14 development |
-| [shared](shared/README.md) | 11 | Common workflows |
+| [shared](shared/README.md) | 14 | Common workflows |
 | [core](core/README.md) | 7 | Core contributions |
 
-**93 entries and 33 distinct skill names.** Each versioned set contains the same 15 workflow names.
+**96 entries and 33 distinct skill names.** Each versioned set contains the same 15 workflow names.
 
 ## Plugin skills
 
 | Skill | Purpose |
 |---|---|
 | [idempiere-local-postgres](idempiere-14/idempiere-local-postgres/SKILL.md) | Read-only PostgreSQL diagnosis and explicit write controls. |
-| [idempiere-migration-review](idempiere-14/idempiere-migration-review/SKILL.md) | Audit model, schema, AD and Java/OSGi consistency. |
-| [idempiere-model-designer](idempiere-14/idempiere-model-designer/SKILL.md) | Specify entities, references, lifecycle and dictionary requirements. |
+| [idempiere-migration-review](shared/idempiere-migration-review/SKILL.md) | Audit model, schema, AD and Java/OSGi consistency. |
+| [idempiere-model-designer](shared/idempiere-model-designer/SKILL.md) | Specify entities, references, lifecycle and dictionary requirements. |
 | [idempiere-pipo-integrity-review](idempiere-14/idempiere-pipo-integrity-review/SKILL.md) | Review dictionary/physical types and PackOut dependencies. |
 | [idempiere-plugin-compiler](idempiere-14/idempiere-plugin-compiler/SKILL.md) | Discover the real target-platform builder and report artifacts. |
 | [idempiere-plugin-version-upgrader](idempiere-14/idempiere-plugin-version-upgrader/SKILL.md) | Plan and verify existing-plugin upgrades on isolated release branches. |
 | [idempiere-plugin-component-developer](idempiere-14/idempiere-plugin-component-developer/SKILL.md) | Implement processes, callouts, events and factories with compatible registration. |
-| [idempiere-plugin-designer](idempiere-14/idempiere-plugin-designer/SKILL.md) | Translate functional requirements into minimal Java/OSGi designs. |
+| [idempiere-plugin-designer](shared/idempiere-plugin-designer/SKILL.md) | Translate functional requirements into minimal Java/OSGi designs. |
 | [idempiere-plugin-manual-generator](idempiere-14/idempiere-plugin-manual-generator/SKILL.md) | Derive English functional manuals and test guides from actual code/metadata. |
 | [idempiere-plugin-readme](idempiere-14/idempiere-plugin-readme/SKILL.md) | Write English plugin README files using repository evidence. |
 | [idempiere-plugin-wiki-page](idempiere-14/idempiere-plugin-wiki-page/SKILL.md) | Prepare evidence-based MediaWiki pages for iDempiere plugins. |
@@ -38,7 +44,7 @@ Reusable skills for iDempiere plugin development, data modeling, testing, docume
 | [skill-architect](idempiere-14/skill-architect/SKILL.md) | Design focused reusable skills when an existing workflow cannot cover the task. |
 | [skill-reviewer](idempiere-14/skill-reviewer/SKILL.md) | Review activation, scope, overlap, structure and instruction quality. |
 
-The links above point to the iDempiere 14 set. Select the directory matching the project version.
+Model design, technical design and review link to their shared source; other entries point to iDempiere 14. Select the actual release for version-specific workflows.
 
 ## Shared skills
 

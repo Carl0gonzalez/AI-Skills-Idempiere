@@ -2,10 +2,13 @@
 
 **English** | [Español](README.es.md)
 
-Eleven workflows for architecture, quality, environments, task management and specialized components. Inspect the target release and supported APIs before using them.
+Fourteen workflows for architecture, quality, environments, task management and specialized components. Inspect the target release and supported APIs before using them.
 
 | Skill | Purpose |
 |---|---|
+| [idempiere-migration-review](idempiere-migration-review/SKILL.md) | Audit model, schema, AD and Java/OSGi consistency. |
+| [idempiere-model-designer](idempiere-model-designer/SKILL.md) | Specify entities, references, lifecycle and dictionary requirements. |
+| [idempiere-plugin-designer](idempiere-plugin-designer/SKILL.md) | Translate functional requirements into minimal Java/OSGi designs. |
 | [idempiere-architecture-patterns](idempiere-architecture-patterns/SKILL.md) | Choose the smallest compatible mechanism and distinguish core, plugin and environment. |
 | [idempiere-plugin-quality-gate](idempiere-plugin-quality-gate/SKILL.md) | Coordinate test execution, coverage and honest quality evidence. |
 | [crear-entornos-idempiere-envrc](crear-entornos-idempiere-envrc/SKILL.md) | Create and review isolated direnv environments with static checks. |

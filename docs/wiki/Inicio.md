@@ -13,10 +13,10 @@ Skills reutilizables para desarrollo de plugins iDempiere, modelado, pruebas, do
 | [idempiere-12](../../idempiere-12/README.es.md) | 15 | iDempiere 12 |
 | [idempiere-13](../../idempiere-13/README.es.md) | 15 | iDempiere 13 |
 | [idempiere-14](../../idempiere-14/README.es.md) | 15 | iDempiere 14 en desarrollo |
-| [shared](../../shared/README.es.md) | 11 | Workflows comunes |
+| [shared](../../shared/README.es.md) | 14 | Workflows comunes |
 | [core](../../core/README.es.md) | 7 | Contribuciones al core |
 
-**93 entradas y 33 nombres distintos.** Cada conjunto versionado contiene los mismos 15 nombres de workflow.
+**96 entradas y 33 nombres distintos.** Cada conjunto versionado contiene los mismos 15 nombres de workflow.
 
 ## Skills de plugins
 

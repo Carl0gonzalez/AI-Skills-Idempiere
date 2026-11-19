@@ -12,9 +12,11 @@ La línea iDempiere y la revisión de una skill son conceptos distintos: la carp
 | [idempiere-13](../idempiere-13/README.es.md) | 15 | iDempiere 13 |
 | [idempiere-14](../idempiere-14/README.es.md) | 15 | iDempiere 14 en desarrollo |
 
-| [shared](../shared/README.es.md) | 11 | Workflows comunes |
+| [shared](../shared/README.es.md) | 14 | Workflows comunes |
 | [core](../core/README.es.md) | 7 | Contribuciones core |
 
 Seleccionar un conjunto versionado que corresponda al proyecto real. No cargar varias copias con el mismo nombre. Los workflows comunes requieren revisar APIs; los del core siguen las reglas de contribución del checkout objetivo.
 
-El catálogo contiene **93 entradas y 33 nombres distintos**. Una carpeta expresa un destino, no una prueba runtime. Para iDempiere 14, revisar commit de desarrollo, JDK y builder seleccionados. Seguir el toolchain del proyecto sin copiar configuraciones de una release anterior.
+El catálogo contiene **96 entradas y 33 nombres distintos**. Una carpeta expresa un destino, no una prueba runtime. Para iDempiere 14, revisar commit de desarrollo, JDK y builder seleccionados. Seguir el toolchain del proyecto sin copiar configuraciones de una release anterior.
+
+Diseño de modelos, diseño técnico y revisión comparten una fuente en `shared/`. Las copias versionadas se mantienen con `python3 codex/sync_design_skills.py`. No instalar copias de igual nombre junto a las globales. Ver la [guía](../codex/GUIA.es.md).
