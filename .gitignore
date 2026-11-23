@@ -13,8 +13,17 @@ Desktop.ini
 # Local environment configuration
 .env
 .env.*
-!.env.example
+*.env
+*.env.*
+.envrc
+.envrc.local
 .direnv/
+.aws/
+.ssh/
+*.pem
+*.key
+*.p12
+*.pfx
 
 # Python and tooling caches
 __pycache__/

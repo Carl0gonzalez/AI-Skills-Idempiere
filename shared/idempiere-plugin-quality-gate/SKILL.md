@@ -106,4 +106,4 @@ Entregar alcance y entorno; contrato y trazabilidad; archivos de prueba; comando
 - `references/test-strategy.md`: derivar pruebas funcionales desde código, AD y BD.
 - `references/integrations.md`: integrar herramientas con seguridad.
 - `assets/QUALITY_REPORT_TEMPLATE.md`: plantilla del informe.
-- `assets/quality-gate.env.example`: nombres de configuración sin secretos.
+- [Variables de configuración](assets/quality-gate-config.md).
