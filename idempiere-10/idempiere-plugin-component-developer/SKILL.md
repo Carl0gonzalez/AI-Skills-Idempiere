@@ -31,6 +31,7 @@ Read [references/registration-patterns.md](references/registration-patterns.md) 
 3. Package DS XML/annotation output, imports and resources under the proven build convention. An annotation in source does not prove a service is packaged or activated.
 4. Add focused regression tests where useful; preserve dates/fixtures/transaction isolation. Compile through the project's actual builder and verify required tests were enabled and executed.
 5. Check callers and affected document types, tenant/org boundaries, currencies and accounting schemas. Validate SQL on each supported database; core requires PostgreSQL and Oracle. Report unavailable engines separately.
+6. Review the diff. Each hunk should address the request or be necessary for the change to work through its normal entry point. Remove imports, variables and functions made unused by your change. Preserve the surrounding code style.
 
 ## Output
 

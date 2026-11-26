@@ -23,6 +23,8 @@ Use only for the iDempiere core repository. Read the target checkout's AGENTS.md
 
 ## Review before completion
 
+Before completion, review the diff. Each hunk should address the request or be necessary for the change to work through its normal entry point. Remove imports, variables and functions made unused by your change. Preserve the surrounding code style.
+
 Search all callers in base, UI, processes and tests. Check other document types, currencies, accounting schemas, clients/orgs and both databases. Review document actions through the real document engine/workflow. List observable collateral scenarios and focused regression tests. A suspected vulnerability goes through the private Jira/security workflow, not a public description.
 
 ## Output

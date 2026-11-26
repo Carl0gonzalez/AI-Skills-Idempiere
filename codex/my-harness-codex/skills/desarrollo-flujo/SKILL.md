@@ -28,6 +28,8 @@ Para delegar, da objetivo, fuentes, archivos de responsabilidad, acciones permit
 
 Resuelve decisiones reversibles de implementación con criterio y anota supuestos relevantes. Pregunta sólo cuando la respuesta cambie el comportamiento o alcance. No exijas especificación, ADR, entrevista ni matriz completa para un arreglo sencillo. Para decisiones de mayor alcance consulta [criterios de diseño y revisión](references/diseno-revision.md).
 
+Antes de editar, expresa el resultado esperado como un comportamiento observable. En tareas de varias etapas, indica cómo comprobarás cada paso relevante. Ejecuta las comprobaciones disponibles y registra cuáles quedaron pendientes y por qué.
+
 En iDempiere, usa primero los especialistas y skills disponibles para la versión real. Conserva las condiciones de `gestionar-tareas` sobre registros persistentes.
 
 Implementa el cambio pedido, verifica según riesgo y presenta resultado, evidencia y límites. Separa inspección, ejecución, merge y despliegue. No publiques ni adjuntes por el solo hecho de terminar: usa las skills de escritura cuando el encargo incluya esa acción. Respeta autorizaciones ya dadas; no las solicites de nuevo sin un cambio material.
